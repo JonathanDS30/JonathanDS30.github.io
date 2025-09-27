@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jonathan DELLA SANTINA — Portfolio</title>
+  <meta name="description" content="IT Enthusiast | MSc Student | DevSecOps Learner | Cyber & Data Systems. Étudiant à l’EPSI et Technicien Informatique chez Ordisys. Projets : IaC, CI/CD, Docker/K8s, Data & Observabilité." />
+  <link rel="icon" href="./assets/img/jds_icon.png"/>
+
+  <!-- Pré-appliquer le thème pour éviter le flash -->
+  <script>
+    (function () {
+      const d = document.documentElement;
+      const ls = localStorage.getItem('theme');
+      if (ls === 'dark' || (!ls && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        d.classList.add('dark');
+      } else {
+        d.classList.remove('dark');
+      }
+    })();
+  </script>
+
+  <!-- Config Tailwind -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Ubuntu', 'Cantarell', 'Noto Sans', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#eef9ff', 100: '#d9f1ff', 200: '#b6e4ff', 300: '#87d1ff', 400: '#58bdff', 500: '#2aa6ff', 600: '#168be6', 700: '#0e6fbf', 800: '#0c5899', 900: '#0b4a80'
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px -15px rgba(2,6,23,.3)'
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography,forms,line-clamp"></script>
+
+  <!-- Police Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / SEO (optionnel) -->
+  <meta property="og:title" content="Jonathan DELLA SANTINA — Portfolio DevSecOps" />
+  <meta property="og:description" content="DevSecOps Learner | MSc EPSI | Technicien Informatique chez Ordisys. Projets IaC, CI/CD, Docker/K8s, Data & Observabilité." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://JonathanDS30github.io/portfolio/" />
+  <meta property="og:image" content="https://tonpseudo.github.io/portfolio/assets/img/cover.png" />
+</head>
+
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans">
+  <!-- ====== Header / Nav ====== -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-800/60 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="h-14 flex items-center justify-between">
+        <a href="#accueil" class="flex items-center gap-2 font-extrabold tracking-tight">
+          <span class="inline-block h-2 w-2 rounded-full bg-brand-500"></span>
+          <span>JD<span class="text-brand-600">/</span>DevSecOps</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#profil" class="hover:text-brand-600">Profil</a>
+          <a href="#parcours" class="hover:text-brand-600">Parcours</a>
+          <a href="#competences" class="hover:text-brand-600">Compétences</a>
+          <a href="#projets" class="hover:text-brand-600">Projets</a>
+          <a href="#apprentissage" class="hover:text-brand-600">Apprentissage</a>
+          <a href="#contact" class="hover:text-brand-600">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="./docs/CV.pdf" class="hidden sm:inline-flex px-3 py-1.5 text-sm font-semibold rounded-full bg-brand-600 text-white hover:bg-brand-700 shadow-soft">CV</a>
+          <button id="themeToggle" aria-label="Basculer le thème" class="p-2 rounded-full hover:bg-slate-200/60 dark:hover:bg-slate-800/60 flex items-center justify-center" title="Thème">
+            <span class="sr-only">Dark/Light</span>
+            <!-- Icône légère -->
+            <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+            <!-- Icône sombre -->
+            <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 118.646 3.646 7 7 0 0020.354 15.354z"/></svg>
+          </button>
+          <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-200/60 dark:hover:bg-slate-800/60" aria-label="Ouvrir le menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <nav class="flex flex-col gap-3 text-sm">
+          <a href="#profil" class="py-1">Profil</a>
+          <a href="#parcours" class="py-1">Parcours</a>
+          <a href="#competences" class="py-1">Compétences</a>
+          <a href="#projets" class="py-1">Projets</a>
+          <a href="#apprentissage" class="py-1">Apprentissage</a>
+          <a href="#contact" class="py-1">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== Accueil / Hero ====== -->
+  <section id="accueil" class="relative">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 items-center gap-10">
+        <div>
+          <p class="text-sm font-semibold text-brand-700">Jonathan DELLA SANTINA</p>
+          <h1 class="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+            Technicien Informatique <span class="text-brand-600">chez Ordisys</span>
+          </h1>
+          <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
+            IT Enthusiast · MSc Student (EPSI) · Technicien Informatique chez Ordisys · Cyber & Data Systems
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#projets" class="px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">Voir mes projets</a>
+            <a href="#contact" class="px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">Me contacter</a>
+          </div>
+          <div class="mt-6 text-sm text-slate-600 dark:text-slate-400 flex flex-wrap gap-4">
+            <span class="inline-flex items-center gap-2"><span>🎓</span> EPSI — MSc Expert en Informatique & SI</span>
+            <span class="inline-flex items-center gap-2"><span>💼</span> Ordisys — Technicien Informatique</span>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-square rounded-2xl overflow-hidden shadow-soft border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-800">
+            <img src="./assets/img/Sidstappen.jpg" alt="Sidstappen" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Profil ====== -->
+  <section id="profil" class="py-16 md:py-20 border-t border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Profil</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-8">
+        <div class="md:col-span-2 prose prose-slate dark:prose-invert max-w-none">
+          <p>
+            Je suis un passionné d’informatique de 23 ans, actuellement en formation Bac+5 à l’EPSI (cursus MSc Expert en Informatique et Systèmes d’Information), en alternance chez Ordisys.
+            Mon profil allie une solide base en administration système, réseaux et cybersécurité, avec une montée en compétences active en DevSecOps, automatisation et data.
+          </p>
+          <p class="mt-4">
+            <strong>Ce que je construis :</strong> scripts d’audit PowerShell, pipelines ETL (Java / Python avec Apache Spark), IaC & Automation (Terraform, Ansible, Proxmox), visualisation (Power BI, Grafana, JasperReports), déploiements cloud automatisés (AWS EC2 + Apache + Ansible + Terraform).
+          </p>
+        </div>
+        <aside class="bg-white/70 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-4">
+          <h3 class="font-semibold">Objectif actuel</h3>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li>🌐 DevSecOps : automatisation, sécurité intégrée, CI/CD, IaC</li>
+            <li>📦 Cloud‑native : Docker, Kubernetes (k3s/k8s), observabilité</li>
+            <li>📁 Infra & virt : Proxmox, VMware, pfSense</li>
+            <li>📊 Data systems : MySQL/MariaDB, ETL, monitoring de flux</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Parcours ====== -->
+  <section id="parcours" class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Parcours</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
+            <h3 class="font-bold">EPSI — MSc Expert en Informatique & SI</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Étudiant (Bac+5) — DevSecOps, systèmes, réseaux, data</p>
+          </div>
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
+            <h3 class="font-bold">Ordisys — Technicien Informatique</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Alternance — Support, administration systèmes & réseaux</p>
+          </div>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
+          <h3 class="font-semibold">Focus actuelle sur les technologies suivantes</h3>
+          <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+            <li>🔐 Linux et Windows</li>
+            <li>⚙️ CI/CD (GitHub Actions)</li>
+            <li>🧱 Infra as Code (Terraform, Ansible)</li>
+            <li>📈 Monitoring (Grafana, Zabbix)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Compétences ====== -->
+  <section id="competences" class="py-16 md:py-20 border-t border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Compétences</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+            <h3 class="font-semibold">Langages & Scripting</h3>
+            <div class="mt-3 flex flex-wrap gap-2 text-sm">
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Java</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Python</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">PowerShell</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Bash</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">SQL</span>
+            </div>
+          </div>
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+            <h3 class="font-semibold">Systèmes</h3>
+            <div class="mt-3 flex flex-wrap gap-2 text-sm">
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Windows (Server & Desktop)</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Linux (Debian, Ubuntu)</span>
+            </div>
+          </div>
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+            <h3 class="font-semibold">Réseaux & Sécurité</h3>
+            <div class="mt-3 flex flex-wrap gap-2 text-sm">
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">AD, GPO</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">DNS, DHCP, VPN</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Fortinet, Cisco</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">pfSense</span>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+            <h3 class="font-semibold">DevOps / Cloud / IaC</h3>
+            <div class="mt-3 flex flex-wrap gap-2 text-sm">
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Docker</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Azure</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Terraform</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Ansible</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Proxmox</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">AWS</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Zabbix</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Grafana</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Git</span>
+            </div>
+          </div>
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+            <h3 class="font-semibold">Data</h3>
+            <div class="mt-3 flex flex-wrap gap-2 text-sm">
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Apache Spark</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Pandas</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Power BI</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">JasperReports</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">MySQL / MariaDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Projets ====== -->
+  <section id="projets" class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Projets techniques phares</h2>
+        <a href="https://github.com/ton-username" target="_blank" rel="noopener" class="text-sm font-semibold text-brand-700 hover:text-brand-800">GitHub ↗</a>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- FineGourmet -->
+        <article class="group p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 hover:shadow-soft transition">
+          <h3 class="font-bold">FineGourmet — Pipeline ETL</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 line-clamp-3">Pipeline ETL avec PySpark et MySQL pour ingestion, transformation et chargement de données culinaires, incluant jobs planifiés et monitoring de flux.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">PySpark</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">MySQL</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Python</span>
+          </div>
+          <a class="mt-4 inline-flex text-sm font-semibold text-brand-700 group-hover:text-brand-800" href="https://github.com/ton-username/finegourmet" target="_blank" rel="noopener">Voir le repo ↗</a>
+        </article>
+
+        <!-- OpenFoodFacts -->
+        <article class="group p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 hover:shadow-soft transition">
+          <h3 class="font-bold">OpenFoodFacts — ETL Java</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 line-clamp-3">ETL en Java sur OpenFoodFacts avec génération de menus intelligents, parsing, nettoyage et stockage des données.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Java</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">ETL</span>
+          </div>
+          <a class="mt-4 inline-flex text-sm font-semibold text-brand-700 group-hover:text-brand-800" href="https://github.com/ton-username/openfoodfacts-etl" target="_blank" rel="noopener">Voir le repo ↗</a>
+        </article>
+
+        <!-- Audit Script -->
+        <article class="group p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 hover:shadow-soft transition">
+          <h3 class="font-bold">Audit Script — PowerShell</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 line-clamp-3">Script d’audit PowerShell pour collecte système (inventaire) avec export et envoi FTP.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">PowerShell</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Sécurité</span>
+          </div>
+          <a class="mt-4 inline-flex text-sm font-semibold text-brand-700 group-hover:text-brand-800" href="https://github.com/ton-username/audit-script" target="_blank" rel="noopener">Voir le repo ↗</a>
+        </article>
+
+        <!-- IaC AWS Automation -->
+        <article class="group p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 hover:shadow-soft transition">
+          <h3 class="font-bold">IaC AWS Automation — Apache</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 line-clamp-3">Déploiement automatisé d’Apache sur EC2 avec Terraform + Ansible, provisioning, playbooks idempotents et variables sécurisées.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">AWS</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Terraform</span>
+            <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Ansible</span>
+          </div>
+          <a class="mt-4 inline-flex text-sm font-semibold text-brand-700 group-hover:text-brand-800" href="https://github.com/ton-username/iac-aws-automation" target="_blank" rel="noopener">Voir le repo ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Apprentissage & Homelab ====== -->
+  <section id="apprentissage" class="py-16 md:py-20 border-t border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Apprentissage & Homelab</h2>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
+          <h3 class="font-semibold">Veille & Blogs</h3>
+          <ul class="mt-3 text-sm space-y-2">
+            <li>📘 Blog de Stéphane Robert</li>
+          </ul>
+        </div>
+        <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
+          <h3 class="font-semibold">Workflows d’automatisation</h3>
+          <ul class="mt-3 text-sm space-y-2">
+            <li>🔄 n8n</li>
+            <li>🔧 GitHub Actions</li>
+          </ul>
+        </div>
+        <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
+          <h3 class="font-semibold">Homelab</h3>
+          <ul class="mt-3 text-sm space-y-2">
+            <li>🖥️ Proxmox</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Contact ====== -->
+  <section id="contact" class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
+      <p class="mt-3 text-slate-600 dark:text-slate-400">Ouvert aux opportunités DevOps / DevSecOps, alternances, missions et collaborations.</p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="mailto:jonathan.dellasantina433@gmail.com" class="px-5 py-3 rounded-full bg-brand-600 text-white font-semibold hover:bg-brand-700 shadow-soft">✉️ Email</a>
+        <a href="https://www.linkedin.com/in/jonathan-della-santina/" target="_blank" rel="noopener" class="px-5 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">LinkedIn</a>
+        <a href="https://github.com/JonathanDS30" target="_blank" rel="noopener" class="px-5 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">GitHub</a>
+      </div>
+      <p class="mt-6 text-sm text-slate-500">Tu peux aussi télécharger mon CV ici : <a class="underline hover:text-brand-700" href="./docs/CV.pdf">CV.pdf</a></p>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <footer class="border-t border-slate-200/60 dark:border-slate-800/60 py-6">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
+      <p>© <span id="year"></span> Jonathan DELLA SANTINA. Tous droits réservés.</p>
+      <div class="flex items-center gap-4">
+        <a href="#accueil" class="hover:text-brand-700">Haut de page ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== Scripts ====== -->
+  <script>
+    // Menu mobile
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+
+    // Dark mode toggle
+    const toggle = document.getElementById('themeToggle');
+    toggle?.addEventListener('click', () => {
+      const d = document.documentElement;
+      const isDark = d.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
