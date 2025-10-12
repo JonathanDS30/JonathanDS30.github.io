@@ -45,6 +45,7 @@
   
   <script src="https://cdn.tailwindcss.com?plugins=typography,forms,line-clamp"></script>
 
+  
   <!-- Police Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,49 +59,58 @@
   <meta property="og:image" content="https://JonathanDS30.github.io/portfolio/assets/img/cover.png" />
 </head>
 
+<script defer src="https://unpkg.com/lucide@latest"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+  });
+</script>
+
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans">
   <!-- ====== Header / Nav ====== -->
-  <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-800/60 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="h-14 flex items-center justify-between">
-        <a href="#accueil" class="flex items-center gap-2 font-extrabold tracking-tight">
-          <span class="inline-block h-2 w-2 rounded-full bg-brand-500"></span>
-          <span class="text-brand-600">JDS</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#profil" class="hover:text-brand-600">Profil</a>
-          <a href="#parcours" class="hover:text-brand-600">Parcours</a>
-          <a href="#competences" class="hover:text-brand-600">Compétences</a>
-          <a href="#projets" class="hover:text-brand-600">Projets</a>
-          <a href="#apprentissage" class="hover:text-brand-600">Apprentissage</a>
-          <a href="#contact" class="hover:text-brand-600">Contact</a>
-        </nav>
-        <div class="flex items-center gap-2">
-          <a href="./docs/CV.pdf" class="hidden sm:inline-flex px-3 py-1.5 text-sm font-semibold rounded-full bg-brand-600 text-white hover:bg-brand-700 shadow-soft">CV</a>
-          <button id="themeToggle" aria-label="Basculer le thème" class="p-2 rounded-full hover:bg-slate-200/60 dark:hover:bg-slate-800/60 flex items-center justify-center" title="Thème">
-            <span class="sr-only">Dark/Light</span>
-            <!-- Icône légère -->
-            <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
-            <!-- Icône sombre -->
-            <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 118.646 3.646 7 7 0 0020.354 15.354z"/></svg>
-          </button>
-          <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-slate-200/60 dark:hover:bg-slate-800/60" aria-label="Ouvrir le menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          </button>
-        </div>
-      </div>
-      <div id="mobileMenu" class="md:hidden hidden pb-4">
-        <nav class="flex flex-col gap-3 text-sm">
-          <a href="#profil" class="py-1">Profil</a>
-          <a href="#parcours" class="py-1">Parcours</a>
-          <a href="#competences" class="py-1">Compétences</a>
-          <a href="#projets" class="py-1">Projets</a>
-          <a href="#apprentissage" class="py-1">Apprentissage</a>
-          <a href="#contact" class="py-1">Contact</a>
-        </nav>
-      </div>
+<header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-800/60 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- grille 3 colonnes : gauche = logo, centre = nav, droite = bouton mobile -->
+    <div class="h-14 grid grid-cols-3 items-center">
+      <!-- Logo gauche -->
+      <a href="#accueil" class="justify-self-start flex items-center gap-2 font-extrabold tracking-tight">
+        <span class="inline-block h-2 w-2 rounded-full bg-brand-500"></span>
+        <span class="text-brand-600">JDS</span>
+      </a>
+
+      <!-- Menu centré (desktop) -->
+      <nav class="hidden md:flex justify-self-center items-center gap-6 text-sm">
+        <a href="#profil" class="hover:text-brand-600">Profil</a>
+        <a href="#parcours" class="hover:text-brand-600">Parcours</a>
+        <a href="#competences" class="hover:text-brand-600">Compétences</a>
+        <a href="#projets" class="hover:text-brand-600">Projets</a>
+        <a href="#apprentissage" class="hover:text-brand-600">Apprentissage</a>
+        <a href="#contact" class="hover:text-brand-600">Contact</a>
+      </nav>
+
+      <!-- Bouton burger à droite (mobile) -->
+      <button id="menuBtn" class="justify-self-end md:hidden p-2 rounded-lg hover:bg-slate-200/60 dark:hover:bg-slate-800/60" aria-label="Ouvrir le menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
-  </header>
+
+    <!-- Menu mobile -->
+    <div id="mobileMenu" class="md:hidden hidden pb-4 text-center">
+      <nav class="flex flex-col gap-3 text-sm">
+        <a href="#profil" class="py-1">Profil</a>
+        <a href="#parcours" class="py-1">Parcours</a>
+        <a href="#competences" class="py-1">Compétences</a>
+        <a href="#projets" class="py-1">Projets</a>
+        <a href="#apprentissage" class="py-1">Apprentissage</a>
+        <a href="#contact" class="py-1">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
 
 <!-- 
 ========================================================
@@ -151,7 +161,7 @@
             je me forme progressivement aux pratiques DevSecOps, à l'automatisation et à la gestion des données.
           </p>
           <p>
-            En parallèle, je me forme sur mon Homelab à la philosophie DevSecOps ainsi qu’à l’ensemble des outils associés (IaC, CI/CD, conteneurisation, monitoring),
+            En parallèle, je me forme sur mon Homelab à la philosophie DevSecOps ainsi qu'à l'ensemble des outils associés (IaC, CI/CD, conteneurisation, monitoring),
             en suivant le parcours de formation de <a href="https://blog.stephane-robert.info/docs/" class="underline hover:text-brand-600" >Stéphane ROBERT</a>, qui constitue pour moi une véritable référence dans le domaine.
           </p>
         </div>
@@ -160,7 +170,7 @@
           <ul class="mt-3 space-y-2 text-sm">
             <li>🌐 DevSecOps : CI/CD, automatisation, IaC</li>
             <li>📦 Conteneurisation : Docker, Kubernetes (k3s/k8s)</li>
-            <li>📁 Virtualisation : Proxmox, VMware, pfSense</li>
+            <li>📁 Virtualisation : Proxmox, VMware, Hyper-V</li>
             <li>📊 Données : MySQL/MariaDB, ETL, monitoring</li>
           </ul>
         </aside>
@@ -183,7 +193,7 @@
       <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-slate-300 dark:bg-slate-700"></div>
 
       <div class="grid md:grid-cols-2 gap-x-12 gap-y-12">
-        <!-- 1 - Gauche -->
+        <!-- 1 - Technicien Informatique Ordisys -->
         <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pr-6">
           <!-- Point timeline -->
           <div class="hidden md:block absolute -right-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 translate-x-1/2"></div>
@@ -193,16 +203,17 @@
             <span class="text-slate-500 dark:text-slate-400">sept. 2025 - aujourd'hui</span>
           </div>
           <h3 class="font-bold text-lg leading-tight">Technicien informatique</h3>
-          <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">Ordisys Informatique Nîmes</p>
+          <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">Ordisys Informatique - Nîmes</p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Contrat d'Apprentissage</p>
           <ul class="mt-4 text-sm space-y-2 text-slate-700 dark:text-slate-300">
-            <li>• Interventions site et à distance (N1/N2)</li>
-            <li>• Install / migrations / intégration AD</li>
-            <li>• Réseaux & systèmes (FW, GPO, O365, Asterisk, VLAN)</li>
+            <li>• Interventions sur site et à distance (<strong>support N1/N2</strong>).</li>
+            <li>• Déploiement et configuration de postes de travail (<strong>Windows 10/11</strong>) et périphériques (imprimantes, scanners) selon les procédures clients.</li>
+            <li>• Administration des systèmes et réseaux : <strong>GPO</strong>, <strong>Office 365</strong>, <strong>VLAN</strong>, <strong>Asterisk</strong>, pare-feux.</li>
+            <li>• Participation à l'amélioration continue des <strong>procédures</strong> et de la <strong>documentation technique</strong>.</li>
           </ul>
         </article>
 
-        <!-- 2 - Droite (décalé) -->
+        <!-- 2 - EPSI Montpellier (décalé) -->
         <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pl-6 md:mt-20">
           <!-- Point timeline -->
           <div class="hidden md:block absolute -left-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 -translate-x-1/2"></div>
@@ -218,18 +229,13 @@
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Option Infrastructure & Cloud</p>
 
           <ul class="mt-3 text-sm space-y-2 text-slate-700 dark:text-slate-300">
-            <li>• Création d'images système automatisées avec <strong>Packer</strong> (Debian 12, Windows Server 2022).</li>
-            <li>• Déploiement d'une infrastructure via <strong>Terraform</strong> & <strong>Ansible</strong> sur un Proxmox (<a href="https://github.com/JonathanDS30/iac-atp-infra" class="underline hover:text-brand-600">GitHub</a>).</li>
-            <li>• Mise en place de pare-feux et VPN avec <strong>pfSense</strong> pour simuler les différents sites (Londres, Monaco, US).</li>
-            <li>• Scénario complet de <strong>PCA/PRA</strong> et supervision réseau simulée.</li>
+              <li>• Projet <strong>MSPR “ATP Infrastructure”</strong> : conception d'une infrastructure multi-site virtualisé avec <strong>Proxmox</strong>, automatisé via <strong>Packer</strong>, <strong>Terraform</strong> & <strong>Ansible</strong> (<a href="https://github.com/JonathanDS30/iac-atp-infra" class="underline hover:text-brand-600">GitHub</a>).</li>
+              <li>• Mise en place de la sécurité réseau et du routage inter-sites (<strong>pfSense, VPN, PCA/PRA simulé</strong>).</li>
+              <li>• Projets <strong>ETL</strong> (<a href="https://github.com/JonathanDS30/OpenFoodsFact-Project" class="underline hover:text-brand-600">Java</a> / <a href="https://github.com/Foufou-exe/finegourmet/tree/main" class="underline hover:text-brand-600">Python</a> - Apache Spark) et <strong>Data Visualization</strong> (Power BI, JasperReports).</li>
           </ul>
-
-          <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">
-            Compétences : Infrastructure as Code, virtualisation, sécurité réseau, plan de reprise d'activité.
-          </p>
         </article>
 
-        <!-- 3 - Gauche -->
+        <!-- 3 - Assistant Technique Ordisys -->
         <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pr-6">
           <!-- Point timeline -->
           <div class="hidden md:block absolute -right-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 translate-x-1/2"></div>
@@ -242,13 +248,13 @@
           <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">Ordisys Informatique - Nîmes</p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Contrat d'Apprentissage</p>
           <ul class="mt-4 text-sm space-y-2 text-slate-700 dark:text-slate-300">
-            <li>• IAM : comptes / accès (AD, O365)</li>
-            <li>• Maintenance préventive & Ticket N1</li>
-            <li>• Windows Server, DNS, DHCP, VPN</li>
+            <li>• Gestion des identités (<strong>Active Directory</strong>, <strong>Office 365</strong>) et administration des accès utilisateurs.</li>
+            <li>• Maintenance préventive et support technique (diagnostic et résolution d'incidents <strong>N1</strong>).</li>
+            <li>• Collaboration avec les équipes projets pour l'optimisation des <strong>réseaux clients</strong>.</li>
           </ul>
         </article>
 
-        <!-- 4 - Droite (décalé) -->
+        <!-- 4 - CNAM Montpellier (décalé) -->
         <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pl-6 md:mt-20">
           <!-- Point timeline -->
           <div class="hidden md:block absolute -left-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 -translate-x-1/2"></div>
@@ -261,13 +267,14 @@
           <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">CNAM Occitanie - Montpellier</p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Certificat Analyste en cybersécurité</p>
           <ul class="mt-4 text-sm space-y-2 text-slate-700 dark:text-slate-300">
-            <li>• Analyse risques EBIOS (Ordisys)</li>
-            <li>• Script d'audit Windows 10/11 pour Ordisys</li>
-            <li>• CTF : Kali, Nmap, Nikto, Hydra</li>
+            <li>• Étude des <strong>architectures réseau</strong> et protocoles de sécurité (TCP/IP, VLAN, AAA, ISO 27001).</li>
+            <li>• Réalisation d'une analyse de risques selon la méthode <strong>EBIOS</strong> pour Ordisys.</li>
+            <li>• Développement d'un script <strong>PowerShell</strong> d'audit et d'inventaire des postes Windows 10/11.</li>
+            <li>• <strong>CTF</strong> et exercices de cybersécurité (Kali, Nmap, Nikto, Hydra).</li>
           </ul>
         </article>
 
-        <!-- 5 - Gauche -->
+        <!-- 5 - BTS SIO SISR -->
         <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pr-6">
           <!-- Point timeline -->
           <div class="hidden md:block absolute -right-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 translate-x-1/2"></div>
@@ -287,7 +294,7 @@
           </ul>
         </article>
 
-        <!-- 6 - Droite (décalé) -->
+        <!-- 6 - Bac PRO SN (décalé) -->
         <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pl-6 md:mt-20">
           <!-- Point timeline -->
           <div class="hidden md:block absolute -left-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 -translate-x-1/2"></div>
@@ -300,10 +307,9 @@
           <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">Lycée Jules Raimu - Nîmes</p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Option RISC (Réseaux Informatiques et Systèmes Communicants)</p>
           <ul class="mt-4 text-sm space-y-2 text-slate-700 dark:text-slate-300">
-            <li>• Pare-feu IPFire et sécurité réseau</li>
-            <li>• Cisco (VLAN, QoS, routage) avec Packet Tracer</li>
-            <li>• Windows Server 2012/2016 : AD/DNS/DHCP</li>
-            <li>• Linux (Debian 8) : services réseau (Apache, FTP, Samba)</li>
+            <li>• Configuration de routeurs et switches Cisco (VLAN, QoS, routage).</li>
+            <li>• Administration de serveurs <strong>Windows Server 2012/2016</strong> : AD/DNS/DHCP.</li>
+            <li>• Mise en œuvre de services réseau sous <strong>Linux Debian</strong> (Apache, FTP, Samba).</li>
           </ul>
         </article>
       </div>
@@ -324,16 +330,18 @@
     <h2 class="text-2xl md:text-3xl font-extrabold">Compétences</h2>
     
     <div class="mt-8 grid md:grid-cols-3 gap-6">
-      
+
       <!-- Infrastructure & Systèmes -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-2xl">🖥️</span>
+          <i data-lucide="server" class="w-5 h-5 text-brand-600"></i>
           <h3 class="font-bold text-lg">Infrastructure & Systèmes</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">OS & Virtualisation</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="monitor" class="w-4 h-4"></i> OS & Virtualisation
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Windows Server</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Linux (Debian/Ubuntu)</span>
@@ -342,7 +350,9 @@
             </div>
           </div>
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Services réseau</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="network" class="w-4 h-4"></i> Services réseau
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">AD / GPO</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">DNS / DHCP</span>
@@ -355,12 +365,14 @@
       <!-- Sécurité & Réseaux -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-2xl">🔒</span>
+          <i data-lucide="shield" class="w-5 h-5 text-brand-600"></i>
           <h3 class="font-bold text-lg">Sécurité & Réseaux</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Pare-feu & Sécurité</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="lock" class="w-4 h-4"></i> Pare-feu & Sécurité
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Fortinet</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">pfSense</span>
@@ -368,7 +380,9 @@
             </div>
           </div>
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Outils cyber</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="activity" class="w-4 h-4"></i> Outils cyber
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Kali Linux</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Nmap</span>
@@ -381,12 +395,14 @@
       <!-- DevOps & Cloud -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-2xl">☁️</span>
+          <i data-lucide="cloud" class="w-5 h-5 text-brand-600"></i>
           <h3 class="font-bold text-lg">DevOps & Cloud</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">IaC & Automatisation</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="code" class="w-4 h-4"></i> IaC & Automatisation
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Terraform</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Ansible</span>
@@ -395,7 +411,9 @@
             </div>
           </div>
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Conteneurs & Cloud</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="boxes" class="w-4 h-4"></i> Conteneurs & Cloud
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Docker</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">AWS</span>
@@ -408,12 +426,14 @@
       <!-- Développement & Scripting -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-2xl">💻</span>
+          <i data-lucide="terminal" class="w-5 h-5 text-brand-600"></i>
           <h3 class="font-bold text-lg">Développement & Scripting</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Langages</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="braces" class="w-4 h-4"></i> Langages
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Java</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Python</span>
@@ -421,7 +441,9 @@
             </div>
           </div>
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Scripts & Automation</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="settings" class="w-4 h-4"></i> Scripts & Automation
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">PowerShell</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Bash</span>
@@ -433,23 +455,27 @@
       <!-- Data & Analytics -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-2xl">📊</span>
+          <i data-lucide="bar-chart-3" class="w-5 h-5 text-brand-600"></i>
           <h3 class="font-bold text-lg">Data & Analytics</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">ETL & Processing</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="database" class="w-4 h-4"></i> ETL & Processing
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Apache Spark</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Pandas</span>
             </div>
           </div>
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Visualisation & DB</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="pie-chart" class="w-4 h-4"></i> Visualisation & DB
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Power BI</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">JasperReports</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">MySQL/MariaDB</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">MySQL / MariaDB</span>
             </div>
           </div>
         </div>
@@ -458,19 +484,23 @@
       <!-- Monitoring & IT Management -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-2xl">🔧</span>
+          <i data-lucide="activity" class="w-5 h-5 text-brand-600"></i>
           <h3 class="font-bold text-lg">Monitoring & IT Management</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Supervision</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="eye" class="w-4 h-4"></i> Supervision
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Zabbix</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Grafana</span>
             </div>
           </div>
           <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">Gestion d'actifs & Ticketing</p>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="file-cog" class="w-4 h-4"></i> Gestion d'actifs & Ticketing
+            </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">GLPI</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">OCS Inventory</span>
@@ -482,6 +512,9 @@
     </div>
   </div>
 </section>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
 
 
 
@@ -526,18 +559,24 @@
       <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
       <p class="mt-3 text-slate-600 dark:text-slate-400"></p>
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-        <a href="mailto:jonathan.dellasantina433@gmail.com" target="_blank" rel="noopener" class="px-5 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">✉️ Email</a>
-        <a href="https://www.linkedin.com/in/jonathan-della-santina/" target="_blank" rel="noopener" class="px-5 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">LinkedIn</a>
+      <a href="mailto:jonathan.dellasantina433@gmail.com"
+   target="_blank" rel="noopener"
+   class="px-5 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 inline-flex items-center gap-2">
+  <i data-lucide="mail" class="w-5 h-5" aria-hidden="true"></i>
+  <span>Email</span>
+</a>
+
+<a href="https://www.linkedin.com/in/jonathan-della-santina/"
+   target="_blank" rel="noopener"
+   class="px-5 py-3 rounded-full border border-slate-300 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 inline-flex items-center gap-2">
+  <i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i>
+  <span>LinkedIn</span>
+</a>
       </div>
-      <p class="mt-6 text-sm text-slate-500">Tu peux aussi télécharger mon CV ici : <a class="underline hover:text-brand-700" href="./docs/CV.pdf">CV.pdf</a></p>
     </div>
   </section>
 
-<!-- 
-========================================================
-================== Section - Contact ===================
-========================================================
--->
+
   <footer class="border-t border-slate-200/60 dark:border-slate-800/60 py-6">
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
       <p>© <span id="year"></span> Jonathan DELLA SANTINA. Tous droits réservés.</p>
