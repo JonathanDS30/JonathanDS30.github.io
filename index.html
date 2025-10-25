@@ -166,13 +166,12 @@
           </p>
         </div>
         <aside class="bg-white/70 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl p-4">
-          <h3 class="font-semibold">Ce que j'apprends</h3>
-          <ul class="mt-3 space-y-2 text-sm">
-            <li>🌐 DevSecOps : CI/CD, automatisation, IaC</li>
-            <li>📦 Conteneurisation : Docker, Kubernetes (k3s/k8s)</li>
-            <li>📁 Virtualisation : Proxmox, VMware, Hyper-V</li>
-            <li>📊 Données : MySQL/MariaDB, ETL, monitoring</li>
-          </ul>
+      <h3 class="font-semibold">Mes Fondations & Objectifs</h3>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>✅ <strong>Maîtrisés :</strong> Virtualisation (Proxmox), IaC (Ansible, Terraform), Docker.</li>
+        <li>🎯 <strong>Objectifs suivants (Homelab) :</strong> Orchestration (Kubernetes) et pipelines CI/CD.</li>
+        <li>📁 <strong>Bases solides :</strong> Systèmes (Linux/Windows), Réseaux (pfSense) & BDD (MySQL).</li>
+      </ul>
         </aside>
       </div>
     </div>
@@ -183,20 +182,22 @@
 ================== Section - Parcours ==================
 ========================================================
 -->
-<section id="parcours" class="py-16 md:py-12">
+<section id="parcours" class="py-16 md:py-20">
   <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-2xl md:text-3xl font-extrabold text-center md:text-left">Mon parcours</h2>
+    <h2 class="text-2xl md:text-3xl font-extrabold text-center mb-12">Mon parcours</h2>
 
-    <!-- Layout style croquis : colonne gauche (1,3,5) / colonne droite décalée (2,4) + ligne centrale -->
-    <div class="relative mt-12">
-      <!-- Ligne verticale (desktop) -->
-      <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-slate-300 dark:bg-slate-700"></div>
+    <div class="relative">
+      <!-- Ligne verticale centrale -->
+      <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-slate-300 dark:bg-slate-700 -translate-x-1/2"></div>
 
-      <div class="grid md:grid-cols-2 gap-x-12 gap-y-12">
-        <!-- 1 - Technicien Informatique Ordisys -->
-        <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pr-6">
-          <!-- Point timeline -->
-          <div class="hidden md:block absolute -right-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 translate-x-1/2"></div>
+      <!-- 1 - Technicien Informatique (GAUCHE) -->
+      <div class="relative mb-4 md:mb-0">
+        <!-- Point central -->
+        <div class="hidden md:block absolute left-1/2 top-6 w-6 h-6 bg-brand-600 rounded-full -translate-x-1/2 z-10 ring-4 ring-white dark:ring-slate-950"></div>
+        
+        <div class="md:w-[calc(50%-30px)] md:ml-0 md:mr-auto bg-white/70 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-lg relative">
+          <!-- Triangle pointer (desktop) -->
+          <div class="hidden md:block absolute top-6 -right-2.5 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[10px] border-l-slate-300 dark:border-l-slate-700"></div>          
           
           <div class="flex items-center justify-between text-xs font-medium mb-3">
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-600/10 text-emerald-600 border border-emerald-600/25">💼 Expérience</span>
@@ -205,40 +206,43 @@
           <h3 class="font-bold text-lg leading-tight">Technicien informatique</h3>
           <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">Ordisys Informatique - Nîmes</p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Contrat d'Apprentissage</p>
-          <ul class="mt-4 text-sm space-y-2 text-slate-700 dark:text-slate-300">
+          <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
             <li>• Interventions sur site et à distance (<strong>support N1/N2</strong>).</li>
-            <li>• Déploiement et configuration de postes de travail (<strong>Windows 10/11</strong>) et périphériques (imprimantes, scanners) selon les procédures clients.</li>
-            <li>• Administration des systèmes et réseaux : <strong>GPO</strong>, <strong>Office 365</strong>, <strong>VLAN</strong>, <strong>Asterisk</strong>, pare-feux.</li>
+            <li>• Déploiement et configuration de postes de travail (<strong>Windows 10/11</strong>) et périphériques selon les procédures clients.</li>
+            <li>• Administration des systèmes et réseaux : <strong>GPO</strong>, <strong>Office 365</strong>, <strong>VLAN</strong>, <strong>Asterisk</strong>, <strong>pare-feux</strong>.</li>
             <li>• Participation à l'amélioration continue des <strong>procédures</strong> et de la <strong>documentation technique</strong>.</li>
           </ul>
-        </article>
+        </div>
+      </div>
 
-        <!-- 2 - EPSI Montpellier (décalé) -->
-        <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pl-6 md:mt-20">
-          <!-- Point timeline -->
-          <div class="hidden md:block absolute -left-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 -translate-x-1/2"></div>
+      <!-- 2 - EPSI Montpellier (DROITE) -->
+      <div class="relative mb-4 md:mb-0 md:-mt-32">
+        <div class="hidden md:block absolute left-1/2 top-6 w-6 h-6 bg-brand-600 rounded-full -translate-x-1/2 z-10 ring-4 ring-white dark:ring-slate-950"></div>
+        
+        <div class="md:w-[calc(50%-30px)] md:ml-auto md:mr-0 bg-white/70 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-lg relative">
+          <div class="hidden md:block absolute top-6 -left-2.5 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-r-[10px] border-r-slate-300 dark:border-r-slate-700"></div>
           
           <div class="flex items-center justify-between text-xs font-medium mb-3">
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-600/10 text-indigo-500 border border-indigo-500/30">🎓 Formation</span>
             <span class="text-slate-500 dark:text-slate-400">2024 - 2026 (en cours)</span>
           </div>
-
           <h3 class="font-bold text-lg leading-tight">MSc Expert en Informatique & Systèmes d'Information</h3>
           <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">EPSI - Montpellier</p>
-
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Option Infrastructure & Cloud</p>
-
-          <ul class="mt-3 text-sm space-y-2 text-slate-700 dark:text-slate-300">
-              <li>• Projet <strong>MSPR “ATP Infrastructure”</strong> : conception d'une infrastructure multi-site virtualisé avec <strong>Proxmox</strong>, automatisé via <strong>Packer</strong>, <strong>Terraform</strong> & <strong>Ansible</strong> (<a href="https://github.com/JonathanDS30/iac-atp-infra" class="underline hover:text-brand-600">GitHub</a>).</li>
-              <li>• Mise en place de la sécurité réseau et du routage inter-sites (<strong>pfSense, VPN, PCA/PRA simulé</strong>).</li>
-              <li>• Projets <strong>ETL</strong> (<a href="https://github.com/JonathanDS30/OpenFoodsFact-Project" class="underline hover:text-brand-600">Java</a> / <a href="https://github.com/Foufou-exe/finegourmet/tree/main" class="underline hover:text-brand-600">Python</a> - Apache Spark) et <strong>Data Visualization</strong> (Power BI, JasperReports).</li>
+          <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
+            <li>• Projet <strong>MSPR "ATP Infrastructure"</strong> : conception d'une infrastructure multi-site virtualisé avec <strong>Proxmox</strong>, automatisé via <strong>Packer</strong>, <strong>Terraform</strong> & <strong>Ansible</strong> (<a href="https://github.com/JonathanDS30/iac-atp-infra" class="underline hover:text-brand-600">GitHub</a>).</li>
+            <li>• Mise en place de la sécurité réseau et du routage inter-sites (<strong>pfSense, VPN, PCA/PRA simulé</strong>).</li>
+            <li>• Projets <strong>ETL</strong> (<a href="https://github.com/JonathanDS30/OpenFoodsFact-Project" class="underline hover:text-brand-600">Java</a> / <a href="https://github.com/Foufou-exe/finegourmet/tree/main" class="underline hover:text-brand-600">Python</a> - Apache Spark) et <strong>Data Visualization</strong> (Power BI, JasperReports).</li>
           </ul>
-        </article>
+        </div>
+      </div>
 
-        <!-- 3 - Assistant Technique Ordisys -->
-        <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pr-6">
-          <!-- Point timeline -->
-          <div class="hidden md:block absolute -right-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 translate-x-1/2"></div>
+      <!-- 3 - Assistant Technique (GAUCHE) -->
+      <div class="relative mb-4 md:mb-0 md:-mt-32">
+        <div class="hidden md:block absolute left-1/2 top-6 w-6 h-6 bg-brand-600 rounded-full -translate-x-1/2 z-10 ring-4 ring-white dark:ring-slate-950"></div>
+        
+        <div class="md:w-[calc(50%-30px)] md:ml-0 md:mr-auto bg-white/70 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-lg relative">
+          <div class="hidden md:block absolute top-6 -right-2.5 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[10px] border-l-slate-300 dark:border-l-slate-700"></div>          
           
           <div class="flex items-center justify-between text-xs font-medium mb-3">
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-600/10 text-emerald-600 border border-emerald-600/25">💼 Expérience</span>
@@ -247,18 +251,20 @@
           <h3 class="font-bold text-lg leading-tight">Assistant technique</h3>
           <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">Ordisys Informatique - Nîmes</p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Contrat d'Apprentissage</p>
-          <ul class="mt-4 text-sm space-y-2 text-slate-700 dark:text-slate-300">
+          <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
             <li>• Gestion des identités (<strong>Active Directory</strong>, <strong>Office 365</strong>) et administration des accès utilisateurs.</li>
             <li>• Maintenance préventive et support technique (diagnostic et résolution d'incidents <strong>N1</strong>).</li>
             <li>• Collaboration avec les équipes projets pour l'optimisation des <strong>réseaux clients</strong>.</li>
           </ul>
-        </article>
+        </div>
+      </div>
 
-        <!-- 4 - CNAM Montpellier (décalé) -->
-        <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pl-6 md:mt-20">
-          <!-- Point timeline -->
-          <div class="hidden md:block absolute -left-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 -translate-x-1/2"></div>
-          
+      <!-- 4 - CNAM (DROITE) -->
+      <div class="relative mb-4 md:mb-0 md:-mt-24">
+        <div class="hidden md:block absolute left-1/2 top-6 w-6 h-6 bg-brand-600 rounded-full -translate-x-1/2 z-10 ring-4 ring-white dark:ring-slate-950"></div>
+        
+        <div class="md:w-[calc(50%-30px)] md:ml-auto md:mr-0 bg-white/70 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-lg relative">
+          <div class="hidden md:block absolute top-6 -left-2.5 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-r-[10px] border-r-slate-300 dark:border-r-slate-700"></div>          
           <div class="flex items-center justify-between text-xs font-medium mb-3">
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-600/10 text-indigo-500 border border-indigo-500/30">🎓 Formation</span>
             <span class="text-slate-500 dark:text-slate-400">août 2023 - oct. 2024</span>
@@ -266,18 +272,21 @@
           <h3 class="font-bold text-lg leading-tight">Licence (L3) Informatique générale</h3>
           <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">CNAM Occitanie - Montpellier</p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Certificat Analyste en cybersécurité</p>
-          <ul class="mt-4 text-sm space-y-2 text-slate-700 dark:text-slate-300">
+          <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
             <li>• Étude des <strong>architectures réseau</strong> et protocoles de sécurité (TCP/IP, VLAN, AAA, ISO 27001).</li>
             <li>• Réalisation d'une analyse de risques selon la méthode <strong>EBIOS</strong> pour Ordisys.</li>
             <li>• Développement d'un script <strong>PowerShell</strong> d'audit et d'inventaire des postes Windows 10/11.</li>
             <li>• <strong>CTF</strong> et exercices de cybersécurité (Kali, Nmap, Nikto, Hydra).</li>
           </ul>
-        </article>
+        </div>
+      </div>
 
-        <!-- 5 - BTS SIO SISR -->
-        <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pr-6">
-          <!-- Point timeline -->
-          <div class="hidden md:block absolute -right-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 translate-x-1/2"></div>
+      <!-- 5 - BTS (GAUCHE) -->
+      <div class="relative mb-4 md:mb-0 md:-mt-32">
+        <div class="hidden md:block absolute left-1/2 top-6 w-6 h-6 bg-brand-600 rounded-full -translate-x-1/2 z-10 ring-4 ring-white dark:ring-slate-950"></div>
+        
+        <div class="md:w-[calc(50%-30px)] md:ml-0 md:mr-auto bg-white/70 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-lg relative">
+          <div class="hidden md:block absolute top-6 -right-2.5 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[10px] border-l-slate-300 dark:border-l-slate-700"></div>          
           
           <div class="flex items-center justify-between text-xs font-medium mb-3">
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-600/10 text-indigo-500 border border-indigo-500/30">🎓 Formation</span>
@@ -286,19 +295,21 @@
           <h3 class="font-bold text-lg leading-tight">BTS Services Informatiques aux Organisations</h3>
           <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">Lycée CCI Gard - Nîmes</p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Option SISR (Solutions d'Infrastructure et Systèmes Réseaux)</p>
-          <ul class="mt-4 text-sm space-y-2 text-slate-700 dark:text-slate-300">
+          <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
             <li>• Mise en place d'une infrastructure complète : pare-feu <strong>Stormshield</strong>, serveur Windows avec les rôles <strong>Active Directory</strong> et <strong>DHCP</strong>.</li>
             <li>• Installation d'un serveur <strong>FOG</strong> pour le déploiement automatisé de postes et supervision réseau via <strong>Zabbix</strong>.</li>
             <li>• Projet GLPI + OCS Inventory pour la gestion des tickets et de l'inventaire matériel.</li>
             <li>• Travail en environnement mixte <strong>Debian 11</strong> et <strong>Windows Server 2019</strong>.</li>
           </ul>
-        </article>
+        </div>
+      </div>
 
-        <!-- 6 - Bac PRO SN (décalé) -->
-        <article class="relative h-full flex flex-col p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 shadow-soft md:pl-6 md:mt-20">
-          <!-- Point timeline -->
-          <div class="hidden md:block absolute -left-6 top-8 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-slate-50 dark:ring-slate-950 -translate-x-1/2"></div>
-          
+      <!-- 6 - Bac PRO (DROITE) -->
+      <div class="relative mb-0 md:-mt-32">
+        <div class="hidden md:block absolute left-1/2 top-6 w-6 h-6 bg-brand-600 rounded-full -translate-x-1/2 z-10 ring-4 ring-white dark:ring-slate-950"></div>
+        
+        <div class="md:w-[calc(50%-30px)] md:ml-auto md:mr-0 bg-white/70 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-lg relative">
+<div class="hidden md:block absolute top-6 -left-2.5 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-r-[10px] border-r-slate-300 dark:border-r-slate-700"></div>          
           <div class="flex items-center justify-between text-xs font-medium mb-3">
             <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-600/10 text-indigo-500 border border-indigo-500/30">🎓 Formation</span>
             <span class="text-slate-500 dark:text-slate-400">2016 - 2020</span>
@@ -306,13 +317,14 @@
           <h3 class="font-bold text-lg leading-tight">Bac Pro Systèmes Numériques</h3>
           <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">Lycée Jules Raimu - Nîmes</p>
           <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">Option RISC (Réseaux Informatiques et Systèmes Communicants)</p>
-          <ul class="mt-4 text-sm space-y-2 text-slate-700 dark:text-slate-300">
+          <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
             <li>• Configuration de routeurs et switches Cisco (VLAN, QoS, routage).</li>
             <li>• Administration de serveurs <strong>Windows Server 2012/2016</strong> : AD/DNS/DHCP.</li>
             <li>• Mise en œuvre de services réseau sous <strong>Linux Debian</strong> (Apache, FTP, Samba).</li>
           </ul>
-        </article>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -331,93 +343,134 @@
     
     <div class="mt-8 grid md:grid-cols-3 gap-6">
 
-      <!-- Infrastructure & Systèmes -->
+      <!-- Systèmes & Administration -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
           <i data-lucide="server" class="w-5 h-5 text-brand-600"></i>
-          <h3 class="font-bold text-lg">Infrastructure & Systèmes</h3>
+          <h3 class="font-bold text-lg">Systèmes & Administration</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
             <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="monitor" class="w-4 h-4"></i> OS & Virtualisation
+              <i data-lucide="monitor" class="w-4 h-4"></i> Windows
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Windows Server</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Linux (Debian/Ubuntu)</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Proxmox</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">VMware</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Win 10/11</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Win Server 2012-2022</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">AD</span>
             </div>
           </div>
           <div>
             <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="network" class="w-4 h-4"></i> Services réseau
+              <i data-lucide="terminal" class="w-4 h-4"></i> Linux
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">AD / GPO</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">DNS / DHCP</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">VPN</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Debian</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Ubuntu</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Linux Mint</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="package" class="w-4 h-4"></i> Gestion de Parcs
+            </p>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">GLPI</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">OCS Inventory</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Sécurité & Réseaux -->
+      <!-- Réseaux & Sécurité -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
           <i data-lucide="shield" class="w-5 h-5 text-brand-600"></i>
-          <h3 class="font-bold text-lg">Sécurité & Réseaux</h3>
+          <h3 class="font-bold text-lg">Réseaux & Sécurité</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
             <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="lock" class="w-4 h-4"></i> Pare-feu & Sécurité
+              <i data-lucide="network" class="w-4 h-4"></i> Protocoles
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Fortinet</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">pfSense</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Cisco</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">TCP/IP</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">DNS</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">DHCP</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">VLAN</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">VPN</span>
             </div>
           </div>
           <div>
             <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="activity" class="w-4 h-4"></i> Outils cyber
+              <i data-lucide="shield-check" class="w-4 h-4"></i> Pare-feu
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Kali Linux</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Nmap</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">EBIOS</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">pfSense</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Fortinet</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Stormshield</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Sophos</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- DevOps & Cloud -->
+      <!-- Virtualisation & Infrastructure -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
-          <i data-lucide="cloud" class="w-5 h-5 text-brand-600"></i>
-          <h3 class="font-bold text-lg">DevOps & Cloud</h3>
+          <i data-lucide="hard-drive" class="w-5 h-5 text-brand-600"></i>
+          <h3 class="font-bold text-lg">Virtualisation & Infrastructure</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
             <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="code" class="w-4 h-4"></i> IaC & Automatisation
+              <i data-lucide="box" class="w-4 h-4"></i> Hyperviseurs
+            </p>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Proxmox</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">VMware</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">VirtualBox</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="globe" class="w-4 h-4"></i> Services
+            </p>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Apache</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">FTP</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">MySQL</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">MariaDB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cloud & IaC -->
+      <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
+        <div class="flex items-center gap-2 mb-4">
+          <i data-lucide="cloud" class="w-5 h-5 text-brand-600"></i>
+          <h3 class="font-bold text-lg">Cloud & Infrastructure as Code</h3>
+        </div>
+        <div class="space-y-3 flex-1">
+          <div>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
+              <i data-lucide="code" class="w-4 h-4"></i> IaC
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Terraform</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Ansible</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Packer</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Git</span>
             </div>
           </div>
           <div>
             <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="boxes" class="w-4 h-4"></i> Conteneurs & Cloud
+              <i data-lucide="cloud-cog" class="w-4 h-4"></i> Cloud Providers
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Docker</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">AWS</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Azure</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Oracle Cloud</span>
             </div>
           </div>
         </div>
@@ -426,66 +479,39 @@
       <!-- Développement & Scripting -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
-          <i data-lucide="terminal" class="w-5 h-5 text-brand-600"></i>
+          <i data-lucide="code-2" class="w-5 h-5 text-brand-600"></i>
           <h3 class="font-bold text-lg">Développement & Scripting</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
             <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="braces" class="w-4 h-4"></i> Langages
+              <i data-lucide="terminal-square" class="w-4 h-4"></i> Langages
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Java</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">PowerShell</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Python</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Bash</span>
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">SQL</span>
             </div>
           </div>
           <div>
             <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="settings" class="w-4 h-4"></i> Scripts & Automation
-            </p>
-            <div class="flex flex-wrap gap-2 text-sm">
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">PowerShell</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Bash</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Data & Analytics -->
-      <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
-        <div class="flex items-center gap-2 mb-4">
-          <i data-lucide="bar-chart-3" class="w-5 h-5 text-brand-600"></i>
-          <h3 class="font-bold text-lg">Data & Analytics</h3>
-        </div>
-        <div class="space-y-3 flex-1">
-          <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="database" class="w-4 h-4"></i> ETL & Processing
+              <i data-lucide="database" class="w-4 h-4"></i> Data & BI
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Apache Spark</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Pandas</span>
-            </div>
-          </div>
-          <div>
-            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="pie-chart" class="w-4 h-4"></i> Visualisation & DB
-            </p>
-            <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Power BI</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">JasperReports</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">MySQL / MariaDB</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">JasperSoft</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Monitoring & IT Management -->
+      <!-- Monitoring & Observabilité -->
       <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 flex flex-col h-full">
         <div class="flex items-center gap-2 mb-4">
           <i data-lucide="activity" class="w-5 h-5 text-brand-600"></i>
-          <h3 class="font-bold text-lg">Monitoring & IT Management</h3>
+          <h3 class="font-bold text-lg">Monitoring & Observabilité</h3>
         </div>
         <div class="space-y-3 flex-1">
           <div>
@@ -494,16 +520,17 @@
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
               <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Zabbix</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Grafana</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Centreon</span>
             </div>
           </div>
           <div>
             <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-1">
-              <i data-lucide="file-cog" class="w-4 h-4"></i> Gestion d'actifs & Ticketing
+              <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Observabilité
             </p>
             <div class="flex flex-wrap gap-2 text-sm">
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">GLPI</span>
-              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">OCS Inventory</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">ELK Stack</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Prometheus</span>
+              <span class="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800">Grafana</span>
             </div>
           </div>
         </div>
