@@ -6,19 +6,23 @@
         <title>Jonathan DELLA SANTINA - Portfolio</title>
         <meta name="description" content="IT Enthusiast | MSc Student | DevSecOps Learner | Étudiant à l'EPSI et Technicien Informatique chez Ordisys." />
         <link rel="icon" href="./assets/img/jds_icon.png" />
-        <!-- Pré-appliquer le thème pour éviter le flash -->
+
+        <script src="https://cdn.tailwindcss.com?plugins=typography,forms,line-clamp"></script>
+
+        <!-- Script pour forcer le dark mode -->
         <script>
             (function () {
                 const d = document.documentElement;
                 const ls = localStorage.getItem("theme");
-                if (ls === "dark" || (!ls && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-                    d.classList.add("dark");
-                } else {
+                // Dark mode par défaut, sauf si l'utilisateur a explicitement choisi light
+                if (ls === "light") {
                     d.classList.remove("dark");
+                } else {
+                    d.classList.add("dark");
                 }
             })();
         </script>
-        <!-- Config Tailwind -->
+
         <script>
             tailwind.config = {
                 darkMode: "class",
@@ -48,7 +52,6 @@
                 },
             };
         </script>
-        <script src="https://cdn.tailwindcss.com?plugins=typography,forms,line-clamp"></script>
         <!-- Police Inter -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -72,44 +75,77 @@
                         </span>
                     </a>
 
-                    <!-- Menu (desktop) -->
-                    <nav class="hidden md:flex items-center gap-6 font-sans">
-                        <a
-                            href="#parcours"
-                            class="group relative px-2 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:translate-x-0"
-                            data-nav
-                        >
-                            Parcours
-                        </a>
-                        <a
-                            href="#competences"
-                            class="group relative px-2 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:translate-x-0"
-                            data-nav
-                        >
-                            Compétences
-                        </a>
-                        <a
-                            href="#projets"
-                            class="group relative px-2 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:translate-x-0"
-                            data-nav
-                        >
-                            Projets
-                        </a>
-                        <a
-                            href="#contact"
-                            class="group relative px-2 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-700 dark:hover:text-brand-400 transition-colors after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:translate-x-0"
-                            data-cta
-                        >
-                            Contact
-                        </a>
-                    </nav>
+                    <!-- Menu (desktop) + Theme Toggle -->
+                    <div class="hidden md:flex items-center gap-6">
+                        <nav class="flex items-center gap-6 font-sans">
+                            <a
+                                href="#parcours"
+                                class="group relative px-2 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:translate-x-0"
+                                data-nav
+                            >
+                                Parcours
+                            </a>
+                            <a
+                                href="#competences"
+                                class="group relative px-2 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:translate-x-0"
+                                data-nav
+                            >
+                                Compétences
+                            </a>
+                            <a
+                                href="#projets"
+                                class="group relative px-2 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:translate-x-0"
+                                data-nav
+                            >
+                                Projets
+                            </a>
+                            <a
+                                href="#contact"
+                                class="group relative px-2 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-700 dark:hover:text-brand-400 transition-colors after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full hover:after:left-0 hover:after:translate-x-0"
+                                data-cta
+                            >
+                                Contact
+                            </a>
+                        </nav>
 
-                    <!-- Bouton burger (mobile) -->
-                    <button id="menuBtn" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Menu">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
+                        <!-- Bouton Theme Toggle (Desktop) -->
+                        <button id="themeToggle" class="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle theme">
+                            <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                            </svg>
+                            <svg id="theme-toggle-light-icon" class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Boutons mobiles (burger + theme) -->
+                    <div class="md:hidden flex items-center gap-2">
+                        <!-- Bouton Theme Toggle (Mobile) -->
+                        <button id="themeToggleMobile" class="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle theme">
+                            <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                ></path>
+                            </svg>
+                        </button>
+
+                        <!-- Bouton burger -->
+                        <button id="menuBtn" class="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Menu mobile -->
@@ -691,76 +727,78 @@
 			================== Section - Contact ===================
 			========================================================
 			-->
-        <section id="contact" class="py-16 md:py-24 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-20">
-            <div class="max-w-5xl mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Email -->
-                    <a
-                        href="mailto:jonathan.dellasantina433@gmail.com"
-                        class="group p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 hover:shadow-soft hover:border-brand-500 dark:hover:border-brand-500 transition-all"
-                    >
-                        <div class="flex flex-col items-center text-center gap-4 min-h-[160px] justify-center">
-                            <div class="p-3 rounded-full bg-brand-50 dark:bg-brand-950/30 group-hover:bg-brand-100 dark:group-hover:bg-brand-950/50 transition">
-                                <i data-lucide="mail" class="w-6 h-6 text-brand-600 dark:text-brand-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2"> Email </h3>
-                                <p class="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition break-words leading-relaxed">
-                                    jonathan.dellasantina433@gmail.com
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- LinkedIn -->
-                    <a
-                        href="https://www.linkedin.com/in/jonathan-della-santina/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="group p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 hover:shadow-soft hover:border-brand-500 dark:hover:border-brand-500 transition-all"
-                    >
-                        <div class="flex flex-col items-center text-center gap-4 min-h-[160px] justify-center">
-                            <div class="p-3 rounded-full bg-brand-50 dark:bg-brand-950/30 group-hover:bg-brand-100 dark:group-hover:bg-brand-950/50 transition">
-                                <i data-lucide="linkedin" class="w-6 h-6 text-brand-600 dark:text-brand-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2"> LinkedIn </h3>
-                                <p class="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition"> jonathan-della-santina </p>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- Localisation -->
-                    <div class="p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
-                        <div class="flex flex-col items-center text-center gap-4 min-h-[160px] justify-center">
-                            <div class="p-3 rounded-full bg-brand-50 dark:bg-brand-950/30 transition">
-                                <i data-lucide="map-pin" class="w-6 h-6 text-brand-600 dark:text-brand-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2"> Localisation </h3>
-                                <p class="text-sm font-medium text-slate-900 dark:text-slate-100"> Nîmes, France </p>
-                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1"> Occitanie </p>
-                            </div>
-                        </div>
+<section id="contact" class="py-16 md:py-24 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-20">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Email -->
+            <a
+                href="mailto:jonathan.dellasantina433@gmail.com"
+                class="group p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 hover:shadow-soft hover:border-brand-500 dark:hover:border-brand-500 transition-all"
+            >
+                <div class="flex flex-col items-center text-center gap-4 min-h-[160px] justify-center">
+                    <!-- Icône sans fond -->
+                    <i data-lucide="mail" class="w-8 h-8 text-brand-600 dark:text-brand-400 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <h3 class="font-bold text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2"> Email </h3>
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition break-words leading-relaxed">
+                            jonathan.dellasantina433@gmail.com
+                        </p>
                     </div>
                 </div>
-                <!-- GitHub en bonus -->
-                <div class="mt-8 text-center">
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-3"> Retrouvez également mes projets sur </p>
-                    <a
-                        href="https://github.com/JonathanDS30"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-slate-700 font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-brand-500 dark:hover:border-brand-500 transition-all"
-                    >
-                        <i data-lucide="github" class="w-5 h-5"></i>
-                        <span>GitHub</span>
-                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                    </a>
+            </a>
+            <!-- LinkedIn -->
+            <a
+                href="https://www.linkedin.com/in/jonathan-della-santina/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50 hover:shadow-soft hover:border-brand-500 dark:hover:border-brand-500 transition-all"
+            >
+                <div class="flex flex-col items-center text-center gap-4 min-h-[160px] justify-center">
+                    <!-- Icône sans fond -->
+                    <i data-lucide="linkedin" class="w-8 h-8 text-brand-600 dark:text-brand-400 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <h3 class="font-bold text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2"> LinkedIn </h3>
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition"> jonathan-della-santina </p>
+                    </div>
+                </div>
+            </a>
+            <!-- Localisation -->
+            <div class="p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
+                <div class="flex flex-col items-center text-center gap-4 min-h-[160px] justify-center">
+                    <!-- Icône sans fond -->
+                    <i data-lucide="map-pin" class="w-8 h-8 text-brand-600 dark:text-brand-400"></i>
+                    <div>
+                        <h3 class="font-bold text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2"> Localisation </h3>
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-100"> Nîmes, France </p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1"> Occitanie </p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+        <!-- GitHub en bonus -->
+        <div class="mt-8 text-center">
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-3"> Retrouvez également mes projets sur </p>
+            <a
+                href="https://github.com/JonathanDS30"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-slate-700 font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-brand-500 dark:hover:border-brand-500 transition-all"
+            >
+                <i data-lucide="github" class="w-5 h-5"></i>
+                <span>GitHub</span>
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </div>
+</section>
+        <!--
+            ========================================================
+            ==================== Footer ============================
+            ========================================================
+        -->
         <footer class="border-t border-slate-200/60 dark:border-slate-800/60 py-6">
             <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
                 <p> © <span id="year"></span> Jonathan DELLA SANTINA. Tous droits réservés. </p>
@@ -769,7 +807,12 @@
                 </div>
             </div>
         </footer>
-        <!-- ====== Scripts ====== -->
+
+        <!-- 
+            ========================================================
+            ==================== Scripts ===========================
+            ========================================================
+        -->
         <script src="https://unpkg.com/lucide@latest"></script>
         <script>
             // Initialisation après chargement du DOM
