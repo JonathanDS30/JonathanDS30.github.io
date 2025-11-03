@@ -825,13 +825,20 @@
                 const menu = document.getElementById("mobileMenu");
                 btn?.addEventListener("click", () => menu?.classList.toggle("hidden"));
 
-                // Dark mode toggle
-                const toggle = document.getElementById("themeToggle");
-                toggle?.addEventListener("click", () => {
+                // Dark mode toggle - FONCTION COMMUNE
+                function toggleTheme() {
                     const d = document.documentElement;
                     const isDark = d.classList.toggle("dark");
                     localStorage.setItem("theme", isDark ? "dark" : "light");
-                });
+                }
+
+                // Dark mode toggle DESKTOP
+                const toggleDesktop = document.getElementById("themeToggle");
+                toggleDesktop?.addEventListener("click", toggleTheme);
+
+                // Dark mode toggle MOBILE
+                const toggleMobile = document.getElementById("themeToggleMobile");
+                toggleMobile?.addEventListener("click", toggleTheme);
 
                 // Year
                 document.getElementById("year").textContent = new Date().getFullYear();
@@ -869,8 +876,8 @@
 
                 // ===== GitHub projects =====
                 (async () => {
-                    // const GH_USER = "JonathanDS30";
-                    // const API = `https://api.github.com/users/${GH_USER}/repos?type=owner&sort=pushed&direction=desc&per_page=12`;
+                    const GH_USER = "JonathanDS30";
+                    const API = `https://api.github.com/users/${GH_USER}/repos?type=owner&sort=pushed&direction=desc&per_page=12`;
 
                     const $loading = document.getElementById("projectsLoading");
                     const $grid = document.getElementById("projectsContainer");
@@ -926,12 +933,10 @@
                               </a>
                             `;
                             $grid.appendChild(card);
-                            // Réinitialiser les icônes Lucide pour la carte
-                            lucide.createIcons({
-                                nameAttr: "data-lucide",
-                                attrs: { class: "" },
-                            });
                         });
+                        
+                        // Recréer les icônes pour les cartes projet
+                        lucide.createIcons();
 
                         $loading.classList.add("hidden");
                         $grid.classList.remove("hidden");
