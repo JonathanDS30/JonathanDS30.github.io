@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Variables Glassmorphism ===== */
+:root {
+  /* Light Mode */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg-hover: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-border-hover: rgba(22, 139, 230, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  --glass-blur: 12px;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #168be6 0%, #2aa6ff 50%, #58bdff 100%);
+  --gradient-mesh: radial-gradient(at 40% 20%, rgba(22, 139, 230, 0.15) 0px, transparent 50%),
+                   radial-gradient(at 80% 0%, rgba(42, 166, 255, 0.1) 0px, transparent 50%);
+}
+
+.dark {
+  /* Dark Mode */
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-bg-hover: rgba(15, 23, 42, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(22, 139, 230, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* ===== Classes utilitaires Glassmorphism ===== */
+@layer components {
+  /* Glass de base */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* Glass subtil (navigation, badges) */
+  .glass-subtle {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass-subtle {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Glass Card */
+  .glass-card {
+    @apply glass rounded-2xl p-6 transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px 0 rgba(22, 139, 230, 0.15);
+  }
+
+  /* Glass Navigation */
+  .glass-nav {
+    @apply glass-subtle;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glass-nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Glass Button */
+  .glass-button {
+    @apply glass px-6 py-3 rounded-xl font-semibold transition-all duration-300 inline-flex items-center justify-center gap-2;
+  }
+
+  .glass-button:hover {
+    @apply scale-105;
+    box-shadow: 0 0 20px rgba(22, 139, 230, 0.3);
+  }
+
+  /* Glass Badge */
+  .glass-badge {
+    @apply glass-subtle px-3 py-1.5 rounded-full text-sm inline-flex items-center gap-2;
+  }
+
+  /* Navigation Link */
+  .nav-link {
+    @apply relative px-2 py-3 text-sm font-medium text-slate-700 dark:text-slate-300
+           hover:text-slate-900 dark:hover:text-white transition-colors;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-1/2 -translate-x-1/2 bottom-0 h-0.5 w-0
+           bg-brand-600 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full left-0 translate-x-0;
+  }
+
+  /* Liens animés */
+  .link-animated {
+    @apply relative;
+  }
+
+  .link-animated::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-600 to-brand-400 transition-all duration-300;
+  }
+
+  .link-animated:hover::after {
+    @apply w-full;
+  }
+}
+
+/* ===== Background décoratif avec mesh gradient ===== */
+.bg-mesh {
+  background-image: var(--gradient-mesh);
+  background-attachment: fixed;
+}
+
+/* ===== Smooth scroll global ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Body ===== */
+body {
+  @apply text-slate-900 dark:text-slate-100 font-sans;
+  @apply antialiased;
+  /* Fond dégradé subtil en mode clair */
+  background: linear-gradient(135deg, #e8f4fc 0%, #f0f7fc 25%, #f8fbfe 50%, #eef6fc 75%, #e5f1fa 100%);
+  background-attachment: fixed;
+}
+
+.dark body,
+body:is(.dark *) {
+  background: #020617;
+}
+
+html.dark {
+  background: #020617;
+}
+
+/* ===== Animations supplémentaires ===== */
+@layer utilities {
+  /* Effet de brillance au hover */
+  .glass-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  .glass-shine:hover::before {
+    left: 100%;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400;
+  }
+
+}
+
+/* ===== Scrollbar personnalisée ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-500;
+}
+
+/* ===== Transitions pour accordéon ===== */
+.accordion-enter-active,
+.accordion-leave-active {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.accordion-enter-from,
+.accordion-leave-to {
+  opacity: 0;
+  max-height: 0;
+}
+
+.accordion-enter-to,
+.accordion-leave-from {
+  opacity: 1;
+  max-height: 500px;
+}
+
+/* ===== Slide transitions ===== */
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}

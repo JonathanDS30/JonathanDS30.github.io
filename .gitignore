@@ -5,3 +5,9 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+
+# Nuxt dev/build (dans src/)
+src/node_modules/
+src/.nuxt/
+src/.output/
+src/dist/
