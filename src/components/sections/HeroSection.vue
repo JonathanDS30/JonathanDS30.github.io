@@ -15,18 +15,18 @@
 
           <!-- Badges glassmorphism -->
           <div class="flex flex-wrap gap-3">
-            <GlassBadge color="indigo">
+            <UiGlassBadge color="indigo">
               <template #icon>
                 <GraduationCap class="w-4 h-4" />
               </template>
               MSc Student @ EPSI
-            </GlassBadge>
-            <GlassBadge color="emerald">
+            </UiGlassBadge>
+            <UiGlassBadge color="emerald">
               <template #icon>
                 <Briefcase class="w-4 h-4" />
               </template>
               Technicien @ Ordisys
-            </GlassBadge>
+            </UiGlassBadge>
           </div>
 
           <!-- Texte À propos -->
@@ -97,6 +97,7 @@
               alt="Jonathan DELLA SANTINA"
               class="w-full h-full object-cover"
               loading="eager"
+              fetchpriority="high"
             />
           </UiGlassCard>
         </div>

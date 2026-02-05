@@ -35,7 +35,9 @@ export default defineNuxtConfig({
         { rel: 'icon', href: '/img/jds_icon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap' },
+        // Font chargée en non-render-blocking via preload + onload swap
+        { rel: 'preload', as: 'style', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap', media: 'print', onload: 'this.media=\'all\'' },
       ],
     },
   },
@@ -43,17 +45,33 @@ export default defineNuxtConfig({
   // CSS global
   css: ['~/assets/css/main.css'],
 
-  // Configuration pour GitHub Pages (génération statique)
-  ssr: false,
+  // SSG : pré-rendu HTML au build pour un FCP rapide
+  ssr: true,
 
   nitro: {
     preset: 'github-pages',
+    compressPublicAssets: true,
   },
 
   // Configuration Tailwind
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
     configPath: 'tailwind.config.ts',
+  },
+
+  // Optimisations Vite
+  vite: {
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vue-vendor': ['vue', 'vue-router'],
+            'icons': ['lucide-vue-next'],
+          },
+        },
+      },
+    },
   },
 
   // Configuration @vueuse/motion

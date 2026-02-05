@@ -1,10 +1,10 @@
 <template>
   <div>
     <SectionsHeroSection />
-    <SectionsParcoursSection />
-    <SectionsCompetencesSection />
-    <SectionsProjetsSection />
-    <SectionsContactSection />
+    <LazySectionsParcoursSection />
+    <LazySectionsCompetencesSection />
+    <LazySectionsProjetsSection />
+    <LazySectionsContactSection />
   </div>
 </template>
 

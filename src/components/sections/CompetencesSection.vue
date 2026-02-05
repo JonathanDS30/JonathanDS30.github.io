@@ -30,7 +30,7 @@ const skills = [
       {
         icon: 'Monitor',
         label: 'Windows',
-        tags: ['Win 10/11', 'Win Server 2012-2022', 'AD'],
+        tags: ['Win 10/11', 'Win Server 2012-2022'],
       },
       {
         icon: 'Terminal',

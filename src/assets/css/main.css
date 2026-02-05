@@ -200,25 +200,6 @@ html.dark {
   @apply bg-brand-500;
 }
 
-/* ===== Transitions pour accordéon ===== */
-.accordion-enter-active,
-.accordion-leave-active {
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.accordion-enter-from,
-.accordion-leave-to {
-  opacity: 0;
-  max-height: 0;
-}
-
-.accordion-enter-to,
-.accordion-leave-from {
-  opacity: 1;
-  max-height: 500px;
-}
-
 /* ===== Slide transitions ===== */
 .slide-down-enter-active,
 .slide-down-leave-active {

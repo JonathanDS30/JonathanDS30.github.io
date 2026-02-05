@@ -33,7 +33,7 @@
           : 'border-l-indigo-500 hover:shadow-indigo-500/20',
         'hover:shadow-xl hover:-translate-y-1'
       ]"
-      @click="toggleAccordion"
+      @click="handleClick"
     >
       <!-- Gradient de fond subtil -->
       <div
@@ -60,40 +60,22 @@
         <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">{{ organization }}</p>
         <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">{{ subtitle }}</p>
 
-        <!-- Indicateur accordéon -->
+        <!-- Indicateur visuel -->
         <div
           class="mt-3 inline-flex items-center gap-1 text-sm font-semibold
                  text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400
                  transition-colors"
         >
-          <span>{{ isOpen ? 'Masquer les détails' : 'Voir les détails' }}</span>
-          <ChevronDown
-            class="w-4 h-4 transition-transform duration-300"
-            :class="{ 'rotate-180': isOpen }"
-          />
+          <span>Voir les détails</span>
+          <Eye class="w-4 h-4" />
         </div>
-      </div>
-
-      <!-- Contenu accordéon avec animation -->
-      <div
-        ref="accordionContent"
-        class="accordion-wrapper overflow-hidden transition-all duration-300 ease-out relative z-10"
-        :style="{
-          maxHeight: isOpen ? contentHeight + 'px' : '0px',
-          opacity: isOpen ? 1 : 0,
-          marginTop: isOpen ? '12px' : '0px'
-        }"
-      >
-        <ul class="text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
-          <li v-for="(detail, idx) in details" :key="idx" v-html="'• ' + detail" />
-        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Briefcase, GraduationCap, ChevronDown } from 'lucide-vue-next'
+import { Briefcase, GraduationCap, Eye } from 'lucide-vue-next'
 
 defineProps<{
   position: 'left' | 'right'
@@ -107,31 +89,12 @@ defineProps<{
   delay?: number
 }>()
 
-const isOpen = ref(false)
-const accordionContent = ref<HTMLElement | null>(null)
-const contentHeight = ref(0)
+const emit = defineEmits<{
+  select: [event: MouseEvent]
+}>()
 
-// Toggle accordéon (empêche la propagation pour les liens internes)
-const toggleAccordion = (event: MouseEvent) => {
-  // Ne pas toggle si on clique sur un lien
-  if ((event.target as HTMLElement).tagName === 'A') {
-    return
-  }
-  isOpen.value = !isOpen.value
+const handleClick = (event: MouseEvent) => {
+  if ((event.target as HTMLElement).tagName === 'A') return
+  emit('select', event)
 }
-
-// Calculer la hauteur du contenu quand il change
-watch(isOpen, (newVal) => {
-  if (newVal && accordionContent.value) {
-    // Mesurer la hauteur réelle du contenu
-    contentHeight.value = accordionContent.value.scrollHeight
-  }
-})
-
-onMounted(() => {
-  // Pré-calculer la hauteur au cas où
-  if (accordionContent.value) {
-    contentHeight.value = accordionContent.value.scrollHeight || 200
-  }
-})
 </script>

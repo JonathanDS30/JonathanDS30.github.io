@@ -10,7 +10,7 @@
         <!-- Ligne verticale centrale -->
         <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-500/50 via-brand-600/30 to-brand-500/50 -translate-x-1/2 rounded-full" />
 
-        <!-- Timeline items avec marges comme dans l'original -->
+        <!-- Timeline items -->
         <CommonTimelineItem
           v-for="(item, index) in timelineItems"
           :key="index"
@@ -23,17 +23,62 @@
           :details="item.details"
           :margin-class="item.marginClass"
           :delay="index * 100"
+          @select="openDetail(index, $event)"
         />
       </div>
     </div>
+
+    <!-- Detail Modal -->
+    <CommonDetailModal
+      :is-open="isModalOpen"
+      :type="selectedItem?.type ?? 'experience'"
+      :period="selectedItem?.period ?? ''"
+      :title="selectedItem?.title ?? ''"
+      :organization="selectedItem?.organization ?? ''"
+      :subtitle="selectedItem?.subtitle ?? ''"
+      :details="selectedItem?.details ?? []"
+      @close="closeDetail"
+      @after-leave="onModalClosed"
+    />
   </section>
 </template>
 
 <script setup lang="ts">
-const timelineItems = [
+interface TimelineItemData {
+  position: 'left' | 'right'
+  type: 'experience' | 'formation'
+  period: string
+  title: string
+  organization: string
+  subtitle: string
+  details: string[]
+  marginClass?: string
+}
+
+const selectedItem = ref<TimelineItemData | null>(null)
+const isModalOpen = ref(false)
+const triggerElement = ref<HTMLElement | null>(null)
+
+const openDetail = (index: number, event: MouseEvent) => {
+  triggerElement.value = (event.currentTarget || event.target) as HTMLElement
+  selectedItem.value = timelineItems[index]
+  isModalOpen.value = true
+}
+
+const closeDetail = () => {
+  isModalOpen.value = false
+}
+
+const onModalClosed = () => {
+  selectedItem.value = null
+  triggerElement.value?.focus()
+  triggerElement.value = null
+}
+
+const timelineItems: TimelineItemData[] = [
   {
-    position: 'left' as const,
-    type: 'experience' as const,
+    position: 'left',
+    type: 'experience',
     period: 'sept. 2025 - aujourd\'hui',
     title: 'Technicien informatique',
     organization: 'Ordisys Informatique - Nîmes',
@@ -47,8 +92,8 @@ const timelineItems = [
     ],
   },
   {
-    position: 'right' as const,
-    type: 'formation' as const,
+    position: 'right',
+    type: 'formation',
     period: '2024 - 2026 (en cours)',
     title: 'MSc Expert en Informatique & Systèmes d\'Information',
     organization: 'EPSI - Montpellier',
@@ -61,8 +106,8 @@ const timelineItems = [
     ],
   },
   {
-    position: 'left' as const,
-    type: 'experience' as const,
+    position: 'left',
+    type: 'experience',
     period: 'août 2023 - sept. 2025',
     title: 'Assistant technique',
     organization: 'Ordisys Informatique - Nîmes',
@@ -75,8 +120,8 @@ const timelineItems = [
     ],
   },
   {
-    position: 'right' as const,
-    type: 'formation' as const,
+    position: 'right',
+    type: 'formation',
     period: '2023 - 2024',
     title: 'Licence (L3) Informatique générale',
     organization: 'CNAM Occitanie - Montpellier',
@@ -90,8 +135,8 @@ const timelineItems = [
     ],
   },
   {
-    position: 'left' as const,
-    type: 'formation' as const,
+    position: 'left',
+    type: 'formation',
     period: '2020 - 2022',
     title: 'BTS Services Informatiques aux Organisations',
     organization: 'Lycée CCI Gard - Nîmes',
@@ -105,8 +150,8 @@ const timelineItems = [
     ],
   },
   {
-    position: 'right' as const,
-    type: 'formation' as const,
+    position: 'right',
+    type: 'formation',
     period: '2016 - 2020',
     title: 'Bac Pro Systèmes Numériques',
     organization: 'Lycée Jules Raimu - Nîmes',
