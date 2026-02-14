@@ -19,8 +19,8 @@
         <!-- Modal Panel -->
         <div
           ref="modalRef"
-          class="relative w-full max-w-lg max-h-[85vh] overflow-y-auto
-                 glass rounded-2xl p-6 md:p-8 border-l-4 shadow-2xl pointer-events-auto
+          class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto
+                 glass rounded-2xl p-8 md:p-10 border-l-4 shadow-2xl pointer-events-auto
                  transition-all duration-300"
           :class="[
             type === 'experience'
@@ -68,22 +68,47 @@
           </p>
 
           <!-- Divider -->
-          <hr class="my-4 border-slate-200/50 dark:border-slate-700/50" />
+          <hr class="my-6 border-slate-200/50 dark:border-slate-700/50" />
 
-          <!-- Details list -->
-          <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
-            <li
-              v-for="(detail, idx) in details"
-              :key="idx"
-              class="flex items-start gap-2"
+          <!-- Sections structurées -->
+          <div class="space-y-8">
+            <div
+              v-for="(section, sIdx) in details"
+              :key="sIdx"
             >
-              <span
-                class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                :class="type === 'experience' ? 'bg-emerald-500' : 'bg-indigo-500'"
+              <h4
+                class="font-semibold text-lg mb-3"
+                :class="type === 'experience' ? 'text-emerald-700 dark:text-emerald-400' : 'text-indigo-700 dark:text-indigo-400'"
+              >
+                {{ section.title }}
+              </h4>
+              <p
+                v-if="section.intro"
+                class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed"
+              >
+                {{ section.intro }}
+              </p>
+              <ul v-if="section.points.length" class="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+                <li
+                  v-for="(point, pIdx) in section.points"
+                  :key="pIdx"
+                  class="flex items-start gap-2.5"
+                >
+                  <span
+                    class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                    :class="type === 'experience' ? 'bg-emerald-500' : 'bg-indigo-500'"
+                  />
+                  <span v-html="point" />
+                </li>
+              </ul>
+
+              <!-- Séparateur entre sections -->
+              <hr
+                v-if="sIdx < details.length - 1"
+                class="mt-8 border-slate-200/30 dark:border-slate-700/30"
               />
-              <span v-html="detail" />
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,7 +126,7 @@ const props = defineProps<{
   title: string
   organization: string
   subtitle: string
-  details: string[]
+  details: { title: string; intro?: string; points: string[] }[]
 }>()
 
 const emit = defineEmits<{
@@ -146,24 +171,33 @@ onKeyStroke('Escape', () => {
   if (props.isOpen) emit('close')
 })
 
-// Focus trap
-const handleTabKey = (e: KeyboardEvent) => {
-  if (e.key !== 'Tab' || !props.isOpen || !modalRef.value) return
-  const focusable = modalRef.value.querySelectorAll<HTMLElement>(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-  )
-  if (focusable.length === 0) return
-  const first = focusable[0]
-  const last = focusable[focusable.length - 1]
-  if (e.shiftKey && document.activeElement === first) {
-    e.preventDefault()
-    last?.focus()
-  } else if (!e.shiftKey && document.activeElement === last) {
-    e.preventDefault()
-    first?.focus()
+// Focus trap (SSR-safe, active uniquement quand la modale est ouverte)
+if (import.meta.client) {
+  const handleTabKey = (e: KeyboardEvent) => {
+    if (e.key !== 'Tab' || !modalRef.value) return
+    const focusable = modalRef.value.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+    if (focusable.length === 0) return
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault()
+      last?.focus()
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault()
+      first?.focus()
+    }
   }
-}
 
-onMounted(() => document.addEventListener('keydown', handleTabKey))
-onUnmounted(() => document.removeEventListener('keydown', handleTabKey))
+  watch(() => props.isOpen, (val) => {
+    if (val) {
+      document.addEventListener('keydown', handleTabKey)
+    } else {
+      document.removeEventListener('keydown', handleTabKey)
+    }
+  })
+
+  onUnmounted(() => document.removeEventListener('keydown', handleTabKey))
+}
 </script>

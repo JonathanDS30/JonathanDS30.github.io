@@ -60,6 +60,15 @@
         <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">{{ organization }}</p>
         <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">{{ subtitle }}</p>
 
+        <!-- Aperçu des détails -->
+        <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
+          <li v-for="(detail, idx) in details" :key="idx" class="flex items-start gap-1.5">
+            <span class="mt-1 w-1 h-1 rounded-full flex-shrink-0"
+                  :class="type === 'experience' ? 'bg-emerald-500' : 'bg-indigo-500'" />
+            <span v-html="detail" />
+          </li>
+        </ul>
+
         <!-- Indicateur visuel -->
         <div
           class="mt-3 inline-flex items-center gap-1 text-sm font-semibold

@@ -36,7 +36,7 @@
       :title="selectedItem?.title ?? ''"
       :organization="selectedItem?.organization ?? ''"
       :subtitle="selectedItem?.subtitle ?? ''"
-      :details="selectedItem?.details ?? []"
+      :details="selectedItem?.extendedDetails ?? []"
       @close="closeDetail"
       @after-leave="onModalClosed"
     />
@@ -44,6 +44,12 @@
 </template>
 
 <script setup lang="ts">
+interface DetailSection {
+  title: string
+  intro?: string
+  points: string[]
+}
+
 interface TimelineItemData {
   position: 'left' | 'right'
   type: 'experience' | 'formation'
@@ -52,6 +58,7 @@ interface TimelineItemData {
   organization: string
   subtitle: string
   details: string[]
+  extendedDetails: DetailSection[]
   marginClass?: string
 }
 
@@ -75,7 +82,7 @@ const onModalClosed = () => {
   triggerElement.value = null
 }
 
-const timelineItems: TimelineItemData[] = [
+const timelineItems: readonly TimelineItemData[] = Object.freeze([
   {
     position: 'left',
     type: 'experience',
@@ -85,10 +92,29 @@ const timelineItems: TimelineItemData[] = [
     subtitle: 'Contrat d\'Apprentissage',
     marginClass: 'mb-8 md:mb-0',
     details: [
-      'Interventions sur site et à distance (<strong>support N1/N2</strong>).',
-      'Déploiement et configuration de postes de travail (<strong>Windows 10/11</strong>) et périphériques selon les procédures clients.',
-      'Administration des systèmes et réseaux : <strong>GPO</strong>, <strong>Office 365</strong>, <strong>VLAN</strong>, <strong>Asterisk</strong>, <strong>pare-feux</strong>.',
-      'Amélioration continue des <strong>procédures</strong> et de la <strong>documentation</strong>.',
+      'Traitement de tickets <strong>N2</strong> : Windows Server, Linux, pare-feux.',
+      '<strong>Référent unique</strong> sur la solution VoIP OrdiSIP (téléphonie interne).',
+      'Services <strong>AD</strong>, pare-feux (<strong>Fortigate, Sophos, Stormshield</strong>), <strong>SD-WAN</strong>.',
+    ],
+    extendedDetails: [
+      {
+        title: 'Montée en responsabilité',
+        intro: 'Passage d\'assistant à technicien au sein de l\'équipe technique, avec des responsabilités élargies :',
+        points: [
+          'Traitement autonome de tickets <strong>N2</strong> impliquant Windows Server, Linux et des interventions sur l\'infrastructure réseau.',
+          'Déploiement de nouveaux postes selon les procédures spécifiques à chaque client, installation et configuration de services <strong>AD</strong> (DHCP, DNS, GPO).',
+          'Gestion de pare-feux (<strong>Fortigate, Sophos, Stormshield</strong>) : règles de filtrage, traffic shaping, mise en place de <strong>SD-WAN</strong> (failover entre lien principal et lien de secours).',
+        ],
+      },
+      {
+        title: 'Référent solution VoIP OrdiSIP',
+        intro: 'Suite au départ du responsable technique, j\'ai assuré la continuité d\'une solution critique :',
+        points: [
+          '<strong>Seul référent</strong> sur OrdiSIP, solution de téléphonie IP développée en interne, déployée chez les clients et en interne chez Ordisys.',
+          'Formation accélérée par l\'ancien responsable, puis <strong>rédaction complète de la documentation</strong> de gestion de la solution (inexistante auparavant).',
+          'Interventions sur site pour le déploiement de nouveaux téléphones et la maintenance de l\'infrastructure VoIP.',
+        ],
+      },
     ],
   },
   {
@@ -104,6 +130,24 @@ const timelineItems: TimelineItemData[] = [
       'Sécurité réseau et routage inter-sites (<strong>pfSense, VPN, PCA/PRA</strong>).',
       'Projets <strong>ETL</strong> (<a href="https://github.com/JonathanDS30/OpenFoodsFact-Project" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-500 underline decoration-2">Java</a>/<a href="https://github.com/Foufou-exe/finegourmet" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-500 underline decoration-2">Python</a> - Apache Spark) et <strong>Data Viz</strong> (<a href="/img/dashboard_finegourmet.jpg" target="_blank" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-500 underline decoration-2">Power BI</a>, <a href="https://github.com/JonathanDS30/Optimized-Rental-Yield-Visualization-for-Occitanie-Region" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-500 underline decoration-2">JasperReports</a>).',
     ],
+    extendedDetails: [
+      {
+        title: 'Infrastructure as Code & Cloud',
+        intro: 'Passage d\'une logique de maintenance à une logique de conception automatisée :',
+        points: [
+          '<strong>Projet MSPR "ATP Infrastructure"</strong> : déploiement "Zero Touch" d\'une infrastructure via <strong>Terraform/Ansible</strong> sur Proxmox, avec templates VM Packer.',
+          '<strong>Architecture haute disponibilité</strong> : conception de patterns Load Balancing et Failover simulés en lab (AWS, Azure).',
+          '<strong>Data Engineering</strong> : création de pipelines ETL (<a href="https://github.com/JonathanDS30/OpenFoodsFact-Project" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-500 underline decoration-2">Java</a>/<a href="https://github.com/Foufou-exe/finegourmet" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-500 underline decoration-2">Python</a> avec Apache Spark) et dashboards <a href="/img/dashboard_finegourmet.jpg" target="_blank" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-500 underline decoration-2">Power BI</a> pour comprendre les enjeux Big Data sur l\'infrastructure.',
+        ],
+      },
+      {
+        title: 'Sécurité et résilience',
+        points: [
+          'Routage inter-sites et VPN site-to-site avec <strong>pfSense</strong>.',
+          'Élaboration de plans de continuité (<strong>PCA</strong>) et de reprise d\'activité (<strong>PRA</strong>).',
+        ],
+      },
+    ],
   },
   {
     position: 'left',
@@ -114,9 +158,36 @@ const timelineItems: TimelineItemData[] = [
     subtitle: 'Contrat d\'Apprentissage',
     marginClass: 'mb-8 md:mb-0 md:-mt-24',
     details: [
-      'Gestion des identités (<strong>Active Directory</strong>, <strong>Office 365</strong>).',
-      'Maintenance préventive et support technique (<strong>N1</strong>).',
-      'Collaboration projets pour l\'optimisation des <strong>réseaux clients</strong>.',
+      'Premier poste en alternance, intégration à l\'équipe <strong>DSI</strong>.',
+      'Maintenance préventive annuelle sur <strong>60+ clients</strong> (PME, collectivités, santé).',
+      'Script <strong>PowerShell</strong> d\'audit pour moderniser la collecte de données.',
+    ],
+    extendedDetails: [
+      {
+        title: 'Immersion en production',
+        intro: 'Mon premier emploi dans l\'informatique. Intégré à l\'équipe DSI, j\'ai manipulé pour la première fois des serveurs Windows et Linux en production :',
+        points: [
+          'Gestion de droits et création de comptes sur <strong>Active Directory</strong> et <strong>Office 365</strong> (tickets N1 de la DSI).',
+          'Prise en main à distance sur les postes clients pour le diagnostic et la résolution d\'incidents.',
+          'Développement de <strong>soft skills</strong> essentiels : rigueur, communication, esprit d\'équipe au sein d\'une structure à taille humaine.',
+        ],
+      },
+      {
+        title: 'Audits et automatisation',
+        intro: 'J\'ai participé aux phases d\'audit des nouveaux clients et apporté une amélioration concrète au processus :',
+        points: [
+          'Inventaire des équipements informatiques des nouveaux clients et <strong>cartographie réseau</strong> (réalisation des schémas réseau).',
+          'Modernisation de la collecte de données : écriture d\'un <strong>script PowerShell</strong> générant un output adapté au Dossier Client Interne, remplaçant le relevé manuel.',
+        ],
+      },
+      {
+        title: 'Maintenance préventive',
+        intro: 'Responsabilité de la maintenance annuelle sur un portefeuille conséquent :',
+        points: [
+          'Maintenance préventive sur site et à distance de <strong>plus de 60 clients</strong> : PME, collectivités (mairies), établissements de santé — parcs Windows et Mac.',
+          'Rédaction de la <strong>procédure de maintenance préventive</strong> à destination des nouveaux techniciens, formalisant le processus pour l\'équipe.',
+        ],
+      },
     ],
   },
   {
@@ -128,10 +199,26 @@ const timelineItems: TimelineItemData[] = [
     subtitle: 'Certificat Analyste en cybersécurité',
     marginClass: 'mb-8 md:mb-0 md:-mt-24',
     details: [
-      'Architectures réseau et sécurité (TCP/IP, VLAN, AAA, ISO 27001).',
-      'Analyse de risques <strong>EBIOS</strong> pour Ordisys.',
-      'Script <strong>PowerShell</strong> d\'audit des postes Windows.',
-      '<strong>CTF</strong> et exercices (Kali, Nmap, Nikto, Hydra).',
+      'Audit de sécurité <strong>EBIOS</strong> réalisé pour Ordisys.',
+      '<strong>CTF</strong> et exercices pratiques (Kali, Nmap, Nikto, Hydra).',
+    ],
+    extendedDetails: [
+      {
+        title: 'Cybersécurité appliquée',
+        intro: 'L\'année qui m\'a fait passer d\'un profil technicien à celui d\'analyste en cybersécurité :',
+        points: [
+          'Réalisation d\'un audit de sécurité en appliquant la méthode <strong>EBIOS</strong> pour Ordisys : identification des biens supports, sources de risques, scénarios stratégiques et opérationnels.',
+          'Exercices pratiques de type <strong>CTF</strong> : Kali Linux, scans Nmap, tests de vulnérabilités Nikto, attaques par force brute Hydra.',
+        ],
+      },
+      {
+        title: 'Alternance et projets',
+        intro: 'Rythme d\'une semaine en formation pour trois semaines en entreprise :',
+        points: [
+          '4 projets professionnels successifs développant l\'autonomie et la recherche de solutions sur des problématiques concrètes.',
+          'Application directe des compétences cyber chez Ordisys, passage vers un rôle d\'<strong>analyste capable d\'auditer des systèmes</strong>.',
+        ],
+      },
     ],
   },
   {
@@ -144,9 +231,18 @@ const timelineItems: TimelineItemData[] = [
     marginClass: 'mb-8 md:mb-0 md:-mt-24',
     details: [
       'Pare-feu <strong>Stormshield</strong>, AD/DHCP sur Windows Server.',
-      'Serveur <strong>FOG</strong> et supervision <strong>Zabbix</strong>.',
-      'GLPI + OCS Inventory pour tickets et inventaire.',
-      'Environnements <strong>Debian 11</strong> et <strong>Windows Server 2019</strong>.',
+      'Serveur <strong>FOG</strong>, supervision <strong>Zabbix</strong>, gestion de parc <strong>GLPI</strong>.',
+    ],
+    extendedDetails: [
+      {
+        title: 'Projets d\'infrastructure',
+        intro: 'Conception et déploiement d\'infrastructures réseau complètes en environnement virtualisé :',
+        points: [
+          'Déploiement de serveurs <strong>Windows Server 2019</strong> (AD, DHCP, DNS, GPO) et serveur <strong>FOG</strong> pour le déploiement d\'images par le réseau.',
+          'Supervision avec <strong>Zabbix</strong>, gestion de parc <strong>GLPI + OCS Inventory</strong>, pare-feux <strong>Stormshield</strong> (filtrage, NAT, VPN IPsec).',
+          'Stage de <strong>10 semaines</strong> en entreprise, mise en pratique sur des problématiques réelles.',
+        ],
+      },
     ],
   },
   {
@@ -158,10 +254,19 @@ const timelineItems: TimelineItemData[] = [
     subtitle: 'Option RISC (Réseaux Informatiques et Systèmes Communicants)',
     marginClass: 'md:-mt-24',
     details: [
-      'Cisco (VLAN, QoS, routage).',
-      '<strong>Windows Server 2012/2016</strong> : AD/DNS/DHCP.',
-      'Services <strong>Linux Debian</strong> (Apache, FTP, Samba).',
+      'Bases réseaux <strong>Cisco</strong> (VLAN, routage, ACL).',
+      'Administration <strong>Windows Server</strong> et <strong>Linux Debian</strong>.',
+    ],
+    extendedDetails: [
+      {
+        title: 'Les fondations',
+        intro: 'La formation où j\'ai découvert ma passion pour les réseaux et l\'infrastructure :',
+        points: [
+          'Premiers pas sur des équipements <strong>Cisco</strong> (VLAN, QoS, routage RIP/OSPF) et administration de serveurs <strong>Windows Server</strong> / <strong>Linux Debian</strong>.',
+          'Apprentissage du câblage réseau, du diagnostic de pannes et des protocoles fondamentaux (TCP/IP, DNS, DHCP).',
+        ],
+      },
     ],
   },
-]
+])
 </script>

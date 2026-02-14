@@ -18,22 +18,6 @@
           :delay="index * 100"
         />
       </div>
-
-      <!-- GitHub en bonus -->
-      <div v-motion-fade-up class="mt-8 text-center">
-        <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">
-          Retrouvez également mes projets sur
-        </p>
-        <UiGlassButton
-          href="https://github.com/JonathanDS30"
-          external
-          variant="ghost"
-        >
-          <Github class="w-5 h-5" />
-          <span>GitHub</span>
-          <ExternalLink class="w-4 h-4" />
-        </UiGlassButton>
-      </div>
     </div>
   </section>
 </template>

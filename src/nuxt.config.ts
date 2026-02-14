@@ -5,7 +5,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxt/image',
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
@@ -28,8 +27,8 @@ export default defineNuxtConfig({
         { property: 'og:title', content: 'Jonathan DELLA SANTINA - Portfolio DevSecOps' },
         { property: 'og:description', content: 'DevSecOps Learner | MSc EPSI | Technicien Informatique chez Ordisys.' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://JonathanDS30.github.io/portfolio/' },
-        { property: 'og:image', content: 'https://JonathanDS30.github.io/portfolio/assets/img/cover.png' },
+        { property: 'og:url', content: 'https://jonathands30.github.io' },
+        { property: 'og:image', content: 'https://jonathands30.github.io/img/cover.png' },
       ],
       link: [
         { rel: 'icon', href: '/img/jds_icon.png' },
