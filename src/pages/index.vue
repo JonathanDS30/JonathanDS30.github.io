@@ -1,6 +1,7 @@
 <template>
   <div>
     <SectionsHeroSection />
+    <LazySectionsAboutSection />
     <LazySectionsParcoursSection />
     <LazySectionsCompetencesSection />
     <LazySectionsProjetsSection />

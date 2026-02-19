@@ -1,9 +1,12 @@
 <template>
   <section id="parcours" class="py-16 md:py-20 scroll-mt-20">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 v-motion-fade-up class="text-2xl md:text-3xl font-extrabold text-center mb-12">
-        Mon parcours
-      </h2>
+      <div v-motion-slide-up class="text-center space-y-4 mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold">
+          Mon <span class="text-brand-600 dark:text-brand-400">Parcours</span>
+        </h2>
+        <div class="w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
 
       <!-- Timeline -->
       <div class="relative grid grid-cols-1 gap-8 md:gap-12">
@@ -87,7 +90,7 @@ const timelineItems: readonly TimelineItemData[] = Object.freeze([
     position: 'left',
     type: 'experience',
     period: 'sept. 2025 - aujourd\'hui',
-    title: 'Technicien informatique',
+    title: 'Apprenti Ingénieur Systèmes et Réseaux',
     organization: 'Ordisys Informatique - Nîmes',
     subtitle: 'Contrat d\'Apprentissage',
     marginClass: 'mb-8 md:mb-0',
@@ -99,7 +102,7 @@ const timelineItems: readonly TimelineItemData[] = Object.freeze([
     extendedDetails: [
       {
         title: 'Montée en responsabilité',
-        intro: 'Passage d\'assistant à technicien au sein de l\'équipe technique, avec des responsabilités élargies :',
+        intro: 'Passage d\'assistant à Ingénieur Systèmes et Réseaux au sein de l\'équipe technique, avec des responsabilités élargies :',
         points: [
           'Traitement autonome de tickets <strong>N2</strong> impliquant Windows Server, Linux et des interventions sur l\'infrastructure réseau.',
           'Déploiement de nouveaux postes selon les procédures spécifiques à chaque client, installation et configuration de services <strong>AD</strong> (DHCP, DNS, GPO).',
@@ -153,7 +156,7 @@ const timelineItems: readonly TimelineItemData[] = Object.freeze([
     position: 'left',
     type: 'experience',
     period: 'août 2023 - sept. 2025',
-    title: 'Assistant technique',
+    title: 'Apprenti Assistant Technique',
     organization: 'Ordisys Informatique - Nîmes',
     subtitle: 'Contrat d\'Apprentissage',
     marginClass: 'mb-8 md:mb-0 md:-mt-24',

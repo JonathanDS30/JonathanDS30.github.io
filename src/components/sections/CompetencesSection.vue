@@ -1,9 +1,14 @@
 <template>
   <section id="competences" class="py-16 md:py-20 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-20">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 v-motion-fade-up class="text-2xl md:text-3xl font-extrabold">Compétences</h2>
+      <div v-motion-slide-up class="text-center space-y-4 mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold">
+          Mes <span class="text-brand-600 dark:text-brand-400">Compétences</span>
+        </h2>
+        <div class="w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+      </div>
 
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-3 gap-6">
         <CommonSkillCard
           v-for="(skill, index) in skills"
           :key="skill.title"
