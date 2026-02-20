@@ -10,12 +10,15 @@
         <div v-motion-slide-down class="relative group">
           <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-blob blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
           <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-blob overflow-hidden border-4 border-white/10 dark:border-slate-800/50 shadow-2xl transition-all duration-500 hover:scale-105">
-            <img
+            <NuxtImg
               src="/img/me.png"
               alt="Jonathan DELLA SANTINA"
               class="w-full h-full object-cover"
               loading="eager"
               fetchpriority="high"
+              format="webp"
+              width="224"
+              height="224"
             />
           </div>
         </div>

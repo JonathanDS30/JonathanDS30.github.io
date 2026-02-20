@@ -20,11 +20,14 @@
           <div class="md:col-span-5 lg:col-span-4 relative group">
             <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
             <div class="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/80 backdrop-blur-xl aspect-[4/5]">
-              <img
+              <NuxtImg
                 src="/img/Me.png"
                 alt="Jonathan DELLA SANTINA"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
+                format="webp"
+                width="400"
+                height="500"
               />
               <!-- Overlay subtil en bas de l'image -->
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>

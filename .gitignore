@@ -11,3 +11,5 @@ src/node_modules/
 src/.nuxt/
 src/.output/
 src/dist/
+
+node_modules/
