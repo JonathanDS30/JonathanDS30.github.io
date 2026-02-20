@@ -13,7 +13,7 @@
             <span class="font-bold text-lg">Jonathan DELLA SANTINA</span>
           </div>
           <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm">
-            Technicien Informatique passionné par la philosophie DevSecOps.
+            Ingénieur Systèmes et Réseaux passionné par la philosophie DevSecOps.
             Actuellement en MSc à l'EPSI et en alternance chez Ordisys.
           </p>
 
