@@ -15,29 +15,32 @@
       />
 
       <!-- Centered wrapper -->
-      <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+      <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-6 pointer-events-none">
         <!-- Modal Panel -->
         <div
           ref="modalRef"
-          class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto
-                 glass rounded-2xl p-8 md:p-10 border-l-4 shadow-2xl pointer-events-auto
+          class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar
+                 bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 md:p-10 
+                 border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] pointer-events-auto
                  transition-all duration-300"
           :class="[
-            type === 'experience'
-              ? 'border-l-emerald-500'
-              : 'border-l-indigo-500',
             showContent
               ? 'opacity-100 scale-100 translate-y-0'
               : 'opacity-0 scale-[0.92] translate-y-4'
           ]"
           :style="{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }"
         >
+          <!-- Halo lumineux supérieur -->
+          <div 
+            class="absolute top-0 left-0 right-0 h-32 opacity-20 pointer-events-none"
+            :class="type === 'experience' ? 'bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-500 via-transparent to-transparent' : 'bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-500 via-transparent to-transparent'"
+          ></div>
+
           <!-- Close button -->
           <button
             class="absolute top-4 right-4 p-2.5 rounded-xl
-                   bg-slate-100/50 dark:bg-slate-800/50
-                   hover:bg-slate-200 dark:hover:bg-slate-700
-                   text-slate-500 dark:text-slate-400
+                   bg-white/5 hover:bg-white/10
+                   text-slate-400 hover:text-white
                    transition-colors duration-200 z-10
                    outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
             aria-label="Fermer"
@@ -47,66 +50,66 @@
           </button>
 
           <!-- Header: Badge + Period -->
-          <div class="flex items-center justify-between text-xs font-medium mb-4 pr-12">
-            <UiGlassBadge :color="type === 'experience' ? 'emerald' : 'indigo'">
+          <div class="relative z-10 flex items-center justify-between text-xs font-medium mb-6 pr-12">
+            <UiGlassBadge :color="type === 'experience' ? 'emerald' : 'indigo'" class="!bg-white/10 !border-white/20 !text-white">
               <template #icon>
                 <Briefcase v-if="type === 'experience'" class="w-3 h-3" />
                 <GraduationCap v-else class="w-3 h-3" />
               </template>
               {{ type === 'experience' ? 'Expérience' : 'Formation' }}
             </UiGlassBadge>
-            <span class="text-slate-500 dark:text-slate-400">{{ period }}</span>
+            <span class="text-slate-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">{{ period }}</span>
           </div>
 
           <!-- Title & Organization -->
-          <h3 class="font-bold text-xl leading-tight pr-8">{{ title }}</h3>
-          <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">
-            {{ organization }}
-          </p>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            {{ subtitle }}
-          </p>
+          <div class="relative z-10">
+            <h3 class="font-extrabold text-2xl md:text-3xl leading-tight pr-8 text-white">{{ title }}</h3>
+            <p class="text-base md:text-lg text-brand-400 font-semibold mt-2">
+              {{ organization }}
+            </p>
+            <p class="mt-2 text-sm text-slate-400">
+              {{ subtitle }}
+            </p>
+          </div>
 
           <!-- Divider -->
-          <hr class="my-6 border-slate-200/50 dark:border-slate-700/50" />
+          <hr class="relative z-10 my-8 border-white/10" />
 
           <!-- Sections structurées -->
-          <div class="space-y-8">
+          <div class="relative z-10 space-y-10">
             <div
               v-for="(section, sIdx) in details"
               :key="sIdx"
             >
               <h4
-                class="font-semibold text-lg mb-3"
-                :class="type === 'experience' ? 'text-emerald-700 dark:text-emerald-400' : 'text-indigo-700 dark:text-indigo-400'"
+                class="font-bold text-xl mb-4 flex items-center gap-3"
+                :class="type === 'experience' ? 'text-emerald-400' : 'text-indigo-400'"
               >
                 {{ section.title }}
               </h4>
               <p
                 v-if="section.intro"
-                class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed"
+                class="text-sm text-slate-300 mb-6 leading-relaxed bg-white/5 p-4 rounded-xl border border-white/5"
               >
                 {{ section.intro }}
               </p>
-              <ul v-if="section.points.length" class="space-y-3 text-sm text-slate-700 dark:text-slate-300">
-                <li
+              
+              <!-- Cartes de détails (remplace la liste) -->
+              <div v-if="section.points.length" class="grid gap-3">
+                <div
                   v-for="(point, pIdx) in section.points"
                   :key="pIdx"
-                  class="flex items-start gap-2.5"
+                  class="flex items-start gap-3.5 bg-white/5 hover:bg-white/10 p-4 rounded-xl border border-white/5 transition-colors duration-200 group"
                 >
-                  <span
-                    class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                    :class="type === 'experience' ? 'bg-emerald-500' : 'bg-indigo-500'"
-                  />
-                  <span v-html="point" />
-                </li>
-              </ul>
-
-              <!-- Séparateur entre sections -->
-              <hr
-                v-if="sIdx < details.length - 1"
-                class="mt-8 border-slate-200/30 dark:border-slate-700/30"
-              />
+                  <div 
+                    class="mt-0.5 p-1 rounded-lg flex-shrink-0 transition-colors"
+                    :class="type === 'experience' ? 'bg-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500/30' : 'bg-indigo-500/20 text-indigo-400 group-hover:bg-indigo-500/30'"
+                  >
+                    <CheckCircle2 class="w-4 h-4" />
+                  </div>
+                  <span class="text-sm text-slate-200 leading-relaxed" v-html="point" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -116,7 +119,7 @@
 </template>
 
 <script setup lang="ts">
-import { X, Briefcase, GraduationCap } from 'lucide-vue-next'
+import { X, Briefcase, GraduationCap, CheckCircle2 } from 'lucide-vue-next'
 import { useScrollLock, onKeyStroke } from '@vueuse/core'
 
 const props = defineProps<{
@@ -201,3 +204,24 @@ if (import.meta.client) {
   onUnmounted(() => document.removeEventListener('keydown', handleTabKey))
 }
 </script>
+
+<style scoped>
+/* Custom Scrollbar pour la modale */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+</style>

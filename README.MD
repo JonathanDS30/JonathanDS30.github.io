@@ -1,75 +1,70 @@
-# Nuxt Minimal Starter
+# Portfolio - Jonathan DELLA SANTINA
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Portfolio personnel présentant mon parcours, mes compétences et mes projets dans le domaine du DevSecOps et de l'administration système.
 
-## Setup
+## 🌐 Accès au site
 
-Make sure to install dependencies:
+Le portfolio est accessible en ligne à l'adresse :  
+**[https://jonathanDS30.github.io](https://jonathanDS30.github.io)**
 
-```bash
-# npm
-npm install
+## 📋 Contenu
 
-# pnpm
-pnpm install
+- **Accueil** : Présentation générale et introduction
+- **Parcours** : Formation et expériences professionnelles (timeline interactive)
+- **Compétences** : Technologies et outils maîtrisés (systèmes, réseaux, cloud, DevSecOps)
+- **Projets** : Les 4 derniers projets GitHub mis à jour automatiquement via l'API GitHub
+- **Contact** : Coordonnées et liens vers mes profils professionnels
 
-# yarn
-yarn install
+## 🛠️ Technologies utilisées
 
-# bun
-bun install
+- **HTML5** : Structure du site
+- **Tailwind CSS** : Framework CSS pour le design
+- **JavaScript vanilla** : Interactions et appels API
+- **Lucide Icons** : Bibliothèque d'icônes
+- **GitHub Pages** : Hébergement statique gratuit
+
+## ✨ Fonctionnalités
+
+- ✅ Design moderne et responsive (mobile, tablette, desktop)
+- ✅ Mode sombre automatique (selon les préférences système)
+- ✅ Timeline interactive avec accordéons
+- ✅ Récupération automatique des derniers projets GitHub
+- ✅ Navigation fluide avec smooth scroll
+- ✅ Optimisé pour la sécurité (pas de failles XSS, liens sécurisés)
+
+## 📁 Structure du projet
+
+```
+my-portfolio/
+├── index.html          # Page principale
+├── assets/
+│   └── img/           # Images (photo, icônes, screenshots)
+│       ├── Sidstappen.jpg
+│       ├── jds_icon.png
+│       └── dashboard_finegourmet.jpg
+└── README.md          # Ce fichier
 ```
 
-## Development Server
+## 🚀 Déploiement
 
-Start the development server on `http://localhost:3000`:
+Le site est automatiquement déployé sur GitHub Pages à chaque push sur la branche `main`.
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
+Pour mettre à jour le site :
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+git add .
+git commit -m "Description des modifications"
+git push
 ```
 
-Locally preview production build:
+Le site sera mis à jour en quelques minutes.
 
-```bash
-# npm
-npm run preview
+## 📧 Contact
 
-# pnpm
-pnpm preview
+- **Email** : [jonathan.dellasantina433@gmail.com](mailto:jonathan.dellasantina433@gmail.com)
+- **LinkedIn** : [jonathan-della-santina](https://www.linkedin.com/in/jonathan-della-santina/)
+- **GitHub** : [JonathanDS30](https://github.com/JonathanDS30)
 
-# yarn
-yarn preview
+---
 
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+© 2025 Jonathan DELLA SANTINA - Tous droits réservés

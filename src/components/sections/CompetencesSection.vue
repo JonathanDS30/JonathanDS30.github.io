@@ -1,9 +1,17 @@
 <template>
-  <section id="competences" class="py-16 md:py-20 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-20">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 v-motion-fade-up class="text-2xl md:text-3xl font-extrabold">Compétences</h2>
+  <section id="competences" class="py-16 md:py-20 border-t border-slate-800/60 scroll-mt-20 relative">
+    <!-- Effet de lueur en arrière-plan -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
+    <div class="max-w-6xl mx-auto px-4 relative z-10">
+      <div v-motion-slide-up class="text-center space-y-4 mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white">
+          Mes <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-600">Compétences</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-brand-400 to-brand-600 mx-auto rounded-full shadow-[0_0_15px_rgba(56,189,248,0.5)]"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <CommonSkillCard
           v-for="(skill, index) in skills"
           :key="skill.title"

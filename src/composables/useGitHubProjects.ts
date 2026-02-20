@@ -36,10 +36,10 @@ export const useGitHubProjects = () => {
         }
       )
 
-      // Filtrer le repo profil et limiter à 4
+      // Filtrer le repo profil et limiter à 5
       repos.value = response
         .filter(repo => repo.name.toLowerCase() !== GH_USER.toLowerCase())
-        .slice(0, 4)
+        .slice(0, 5)
 
     } catch (e) {
       error.value = 'Erreur lors du chargement des projets GitHub'

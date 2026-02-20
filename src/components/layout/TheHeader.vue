@@ -82,12 +82,13 @@
 </template>
 
 <script setup lang="ts">
-import { Moon, Sun, Menu, X, Route, Layers, FolderGit2, Mail } from 'lucide-vue-next'
+import { Moon, Sun, Menu, X, Route, Layers, FolderGit2, Mail, User } from 'lucide-vue-next'
 
 const colorMode = useColorMode()
 const isMobileMenuOpen = ref(false)
 
 const navItems = [
+  { href: '#a-propos', label: 'À Propos', icon: User },
   { href: '#parcours', label: 'Parcours', icon: Route },
   { href: '#competences', label: 'Compétences', icon: Layers },
   { href: '#projets', label: 'Projets', icon: FolderGit2 },

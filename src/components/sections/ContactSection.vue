@@ -1,8 +1,11 @@
 <template>
   <section id="contact" class="py-16 md:py-24 border-t border-slate-200/60 dark:border-slate-800/60 scroll-mt-20">
     <div class="max-w-5xl mx-auto px-4">
-      <div v-motion-fade-up class="text-center mb-12">
-        <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
+      <div v-motion-slide-up class="text-center space-y-4 mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold">
+          Me <span class="text-brand-600 dark:text-brand-400">Contacter</span>
+        </h2>
+        <div class="w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">

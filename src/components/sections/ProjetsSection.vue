@@ -1,19 +1,22 @@
 <template>
   <section id="projets" class="py-16 md:py-20 scroll-mt-20">
     <div class="max-w-6xl mx-auto px-4">
-      <div v-motion-fade-up class="flex items-center justify-between gap-4 mb-8">
-        <div class="flex items-center gap-3">
-          <h2 class="text-2xl md:text-3xl font-extrabold">
-            Les 4 derniers projets de mon GitHub
-          </h2>
-        </div>
+      <div v-motion-slide-up class="text-center space-y-4 mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold">
+          Mes <span class="text-brand-600 dark:text-brand-400">Projets</span>
+        </h2>
+        <div class="w-20 h-1 bg-brand-500 mx-auto rounded-full"></div>
+        <p class="text-slate-600 dark:text-slate-400 mt-4">Les 5 derniers projets de mon GitHub</p>
+      </div>
+
+      <div class="flex justify-end mb-6">
         <a
           :href="`https://github.com/${GH_USER}`"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-400 dark:hover:text-brand-300 transition"
         >
-          <span>GitHub</span>
+          <span>Voir tout sur GitHub</span>
           <ExternalLink class="w-4 h-4" />
         </a>
       </div>
@@ -41,11 +44,12 @@
       </div>
 
       <!-- Projets -->
-      <div v-else class="mt-8 grid sm:grid-cols-2 gap-6">
+      <div v-else class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         <CommonProjectCard
           v-for="(repo, index) in repos"
           :key="repo.id"
           :repo="repo"
+          :is-featured="index === 0"
           :delay="index * 100"
           :format-date="formatDate"
         />
