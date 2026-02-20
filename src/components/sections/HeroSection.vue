@@ -11,7 +11,7 @@
           <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-blob blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
           <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-blob overflow-hidden border-4 border-white/10 dark:border-slate-800/50 shadow-2xl transition-all duration-500 hover:scale-105">
             <img
-              src="/img/Sidstappen.jpg"
+              src="/img/me.png"
               alt="Jonathan DELLA SANTINA"
               class="w-full h-full object-cover"
               loading="eager"
@@ -48,7 +48,7 @@
           </div>
 
           <!-- Liens sociaux -->
-          <div class="flex items-center justify-center gap-4 pt-4">
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
             <UiGlassButton
               href="https://github.com/JonathanDS30"
               external

@@ -43,7 +43,7 @@
           : 'bg-gradient-to-br from-indigo-500/5 to-transparent'"
       />
       <!-- Header avec badge et date -->
-      <div class="flex items-center justify-between text-xs font-medium mb-3 relative z-10">
+      <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-medium mb-3 relative z-10">
         <UiGlassBadge :color="type === 'experience' ? 'emerald' : 'indigo'">
           <template #icon>
             <Briefcase v-if="type === 'experience'" class="w-3 h-3" />
@@ -56,9 +56,9 @@
 
       <!-- Contenu -->
       <div class="relative z-10">
-        <h3 class="font-bold text-lg leading-tight">{{ title }}</h3>
-        <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1">{{ organization }}</p>
-        <p class="mt-2 text-xs text-slate-600 dark:text-slate-400">{{ subtitle }}</p>
+        <h3 class="font-bold text-lg leading-tight break-words">{{ title }}</h3>
+        <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1 break-words">{{ organization }}</p>
+        <p class="mt-2 text-xs text-slate-600 dark:text-slate-400 break-words">{{ subtitle }}</p>
 
         <!-- Aperçu des détails -->
         <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">

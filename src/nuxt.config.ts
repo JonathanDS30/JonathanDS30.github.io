@@ -31,7 +31,7 @@ export default defineNuxtConfig({
         { property: 'og:image', content: 'https://jonathands30.github.io/img/cover.png' },
       ],
       link: [
-        { rel: 'icon', href: '/img/jds_icon.png' },
+        { rel: 'icon', href: '/img/jds_icon0.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         // Font chargée en non-render-blocking via preload + onload swap
