@@ -29,10 +29,11 @@ export default defineNuxtConfig({
         { property: 'og:description', content: 'DevSecOps Learner | MSc EPSI | Technicien Informatique chez Ordisys.' },
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://jonathands30.github.io' },
-        { property: 'og:image', content: 'https://jonathands30.github.io/img/cover.png' },
+        { property: 'og:image', content: 'https://jonathands30.github.io/img/me.png' },
       ],
       link: [
-        { rel: 'icon', href: '/img/jds_icon.png' },
+        { rel: 'icon', type: 'image/png', href: '/img/jds_icon.png' },
+        { rel: 'apple-touch-icon', href: '/img/jds_icon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         // Font chargée en non-render-blocking via preload + onload swap

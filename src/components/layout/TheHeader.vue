@@ -7,13 +7,14 @@
           href="#accueil"
           class="flex items-center gap-2.5 font-bold text-lg group"
         >
-          <NuxtImg 
+          <img 
             src="/img/jds_icon.png" 
             alt="Logo JDS" 
             class="w-9 h-9 rounded-xl shadow-lg group-hover:shadow-glass-glow group-hover:scale-105 transition-all duration-300 object-cover"
             width="36"
             height="36"
-            format="webp"
+            loading="eager"
+            fetchpriority="high"
           />
         </a>
 

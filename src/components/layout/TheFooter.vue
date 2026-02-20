@@ -10,13 +10,13 @@
         <!-- Colonne 1 : Logo et description -->
         <div class="flex flex-col lg:col-span-4">
           <div class="flex items-center gap-2.5 mb-6">
-            <NuxtImg 
+            <img 
               src="/img/jds_icon.png" 
               alt="Logo JDS" 
               class="w-10 h-10 rounded-lg shadow-lg object-cover"
               width="40"
               height="40"
-              format="webp"
+              loading="lazy"
             />
             <span class="font-bold text-lg text-slate-900 dark:text-white">Jonathan DELLA SANTINA</span>
           </div>

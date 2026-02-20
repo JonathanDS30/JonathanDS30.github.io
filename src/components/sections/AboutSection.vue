@@ -21,7 +21,7 @@
             <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-brand-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
             <div class="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/80 backdrop-blur-xl aspect-[4/5]">
               <NuxtImg
-                src="/img/Me.png"
+                src="/img/me.png"
                 alt="Jonathan DELLA SANTINA"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
