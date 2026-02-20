@@ -1,5 +1,5 @@
 <template>
-  <section id="competences" class="py-16 md:py-20 border-t border-slate-800/60 scroll-mt-20 relative">
+  <section id="competences" class="py-16 md:py-20 border-t border-slate-800/60 scroll-mt-20 relative overflow-hidden">
     <!-- Effet de lueur en arrière-plan -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 

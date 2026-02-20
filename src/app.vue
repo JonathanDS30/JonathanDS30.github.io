@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col relative">
+  <div class="min-h-screen flex flex-col relative overflow-x-hidden">
     <!-- Background global avec mesh gradient -->
     <div class="fixed inset-0 bg-mesh opacity-80 dark:opacity-30 pointer-events-none" />
 
@@ -17,3 +17,11 @@
     <LayoutTheFooter />
   </div>
 </template>
+
+<script setup lang="ts">
+useHead({
+  bodyAttrs: {
+    class: 'overflow-x-hidden'
+  }
+})
+</script>

@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
+    '@nuxt/image',
   ],
 
   // Configuration du mode couleur (dark mode)
@@ -28,10 +29,11 @@ export default defineNuxtConfig({
         { property: 'og:description', content: 'DevSecOps Learner | MSc EPSI | Technicien Informatique chez Ordisys.' },
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://jonathands30.github.io' },
-        { property: 'og:image', content: 'https://jonathands30.github.io/img/cover.png' },
+        { property: 'og:image', content: 'https://jonathands30.github.io/img/me.png' },
       ],
       link: [
-        { rel: 'icon', href: '/img/jds_icon.png' },
+        { rel: 'icon', type: 'image/png', href: '/img/jds_icon.png' },
+        { rel: 'apple-touch-icon', href: '/img/jds_icon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         // Font chargée en non-render-blocking via preload + onload swap
@@ -46,6 +48,10 @@ export default defineNuxtConfig({
 
   // SSG : pré-rendu HTML au build pour un FCP rapide
   ssr: true,
+
+  routeRules: {
+    '/': { prerender: true }
+  },
 
   nitro: {
     preset: 'github-pages',
@@ -76,13 +82,13 @@ export default defineNuxtConfig({
   // Configuration @vueuse/motion
   motion: {
     directives: {
-      'slide-left': {
-        initial: { opacity: 0, x: -80 },
-        visibleOnce: { opacity: 1, x: 0, transition: { duration: 600, ease: 'easeOut' } },
+      'slide-up': {
+        initial: { opacity: 0, y: 40 },
+        visibleOnce: { opacity: 1, y: 0, transition: { duration: 500, ease: 'easeOut' } },
       },
-      'slide-right': {
-        initial: { opacity: 0, x: 80 },
-        visibleOnce: { opacity: 1, x: 0, transition: { duration: 600, ease: 'easeOut' } },
+      'slide-down': {
+        initial: { opacity: 0, y: -40 },
+        visibleOnce: { opacity: 1, y: 0, transition: { duration: 500, ease: 'easeOut' } },
       },
       'fade-up': {
         initial: { opacity: 0, y: 40 },
