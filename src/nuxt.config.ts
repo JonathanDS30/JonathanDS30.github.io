@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/img/jds_icon.png' },
         { rel: 'apple-touch-icon', href: '/img/jds_icon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
         // Font chargée en non-render-blocking via preload + onload swap
         { rel: 'preload', as: 'style', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap', media: 'print', onload: 'this.media=\'all\'' },
@@ -48,6 +48,10 @@ export default defineNuxtConfig({
 
   // SSG : pré-rendu HTML au build pour un FCP rapide
   ssr: true,
+
+  features: {
+    inlineStyles: true,
+  },
 
   routeRules: {
     '/': { prerender: true }
@@ -67,7 +71,6 @@ export default defineNuxtConfig({
   // Optimisations Vite
   vite: {
     build: {
-      cssCodeSplit: true,
       rollupOptions: {
         output: {
           manualChunks: {

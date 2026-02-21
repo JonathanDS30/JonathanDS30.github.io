@@ -17,8 +17,8 @@
               loading="eager"
               fetchpriority="high"
               format="webp"
-              width="224"
-              height="224"
+              width="448"
+              height="448"
             />
           </div>
         </div>
@@ -46,7 +46,7 @@
               <template #icon>
                 <Briefcase class="w-4 h-4" />
               </template>
-              Ingénieur Systèmes et Réseaux @ Ordisys
+              Work @ Ordisys
             </UiGlassBadge>
           </div>
 
@@ -98,6 +98,7 @@ import { GraduationCap, Briefcase, Github, Linkedin, Mail } from 'lucide-vue-nex
 .rounded-blob {
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   animation: morph 8s ease-in-out infinite;
+  will-change: border-radius, transform;
 }
 
 @keyframes morph {
@@ -127,5 +128,6 @@ import { GraduationCap, Briefcase, Github, Linkedin, Mail } from 'lucide-vue-nex
 .animate-breathe {
   animation: breathe 10s ease-in-out infinite;
   transform-origin: center;
+  will-change: opacity, transform;
 }
 </style>

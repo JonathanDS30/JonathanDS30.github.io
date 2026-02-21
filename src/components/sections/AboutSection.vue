@@ -26,8 +26,8 @@
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
                 format="webp"
-                width="400"
-                height="500"
+                width="800"
+                height="1000"
               />
               <!-- Overlay subtil en bas de l'image -->
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
