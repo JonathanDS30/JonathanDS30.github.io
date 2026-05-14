@@ -2,12 +2,10 @@
   <ClientOnly>
     <Teleport to="body">
       <Transition
-        enter-active-class="transition-opacity duration-300 ease-out"
-        enter-from-class="opacity-0"
-        enter-to-class="opacity-100"
-        leave-active-class="transition-opacity duration-300 ease-in"
-        leave-from-class="opacity-100"
-        leave-to-class="opacity-0"
+        enter-active-class="transition-none"
+        enter-from-class="[&_.modal-backdrop]:bg-black/0 [&_.modal-backdrop]:backdrop-blur-[0px] [&_.modal-panel]:opacity-0 [&_.modal-panel]:scale-95 [&_.modal-panel]:translate-y-4"
+        leave-active-class="transition-none"
+        leave-to-class="[&_.modal-backdrop]:bg-black/0 [&_.modal-backdrop]:backdrop-blur-[0px] [&_.modal-panel]:opacity-0 [&_.modal-panel]:scale-95 [&_.modal-panel]:translate-y-4"
         @after-leave="$emit('afterLeave')"
       >
         <div
@@ -19,7 +17,7 @@
         >
           <!-- Backdrop -->
           <div
-            class="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            class="modal-backdrop absolute inset-0 bg-black/40 backdrop-blur-md transition-[background-color,backdrop-filter] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
             @click="$emit('close')"
           />
 
@@ -28,12 +26,10 @@
             <!-- Modal Panel -->
             <div
               ref="modalRef"
-              class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar
+              class="modal-panel relative w-full max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar
                      bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 md:p-10 
-                     border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] pointer-events-auto
-                     transition-all duration-300"
-              :class="isOpen ? 'scale-100 translate-y-0' : 'scale-[0.92] translate-y-4'"
-              :style="{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }"
+                     border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] pointer-events-auto opacity-100
+                     transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
           <!-- Halo lumineux supérieur -->
           <div 
