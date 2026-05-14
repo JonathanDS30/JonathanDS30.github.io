@@ -3,9 +3,9 @@
     <Teleport to="body">
       <Transition
         enter-active-class="transition-none"
-        enter-from-class="[&_.modal-backdrop]:bg-black/0 [&_.modal-backdrop]:backdrop-blur-[0px] [&_.modal-panel]:opacity-0 [&_.modal-panel]:scale-95 [&_.modal-panel]:translate-y-4"
+        enter-from-class="[&_.modal-backdrop]:bg-black/0 [&_.modal-backdrop]:backdrop-blur-[0px] [&_.modal-panel]:opacity-0 [&_.modal-panel]:scale-[0.80] [&_.modal-panel]:translate-y-12"
         leave-active-class="transition-none"
-        leave-to-class="[&_.modal-backdrop]:bg-black/0 [&_.modal-backdrop]:backdrop-blur-[0px] [&_.modal-panel]:opacity-0 [&_.modal-panel]:scale-95 [&_.modal-panel]:translate-y-4"
+        leave-to-class="[&_.modal-backdrop]:bg-black/0 [&_.modal-backdrop]:backdrop-blur-[0px] [&_.modal-panel]:opacity-0"
         @after-leave="$emit('afterLeave')"
       >
         <div
@@ -17,8 +17,8 @@
         >
           <!-- Backdrop -->
           <div
-            class="modal-backdrop absolute inset-0 bg-black/40 backdrop-blur-md transition-[background-color,backdrop-filter] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            @click="$emit('close')"
+            class="modal-backdrop absolute inset-0 bg-slate-900/60 backdrop-blur-xl transition-[background-color,backdrop-filter] duration-[700ms] ease-[cubic-bezier(0.32,0.72,0,1)]"
+            @click="requestClose"
           />
 
           <!-- Centered wrapper -->
@@ -27,9 +27,11 @@
             <div
               ref="modalRef"
               class="modal-panel relative w-full max-w-2xl max-h-[85vh] overflow-y-auto custom-scrollbar
-                     bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 md:p-10 
-                     border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] pointer-events-auto opacity-100
-                     transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                     bg-slate-900/70 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 md:p-10 
+                     border border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] pointer-events-auto opacity-100
+                     transform-gpu rotate-0 origin-bottom
+                     transition-[transform,opacity] duration-[700ms] ease-[cubic-bezier(0.32,0.72,0,1)]"
+              :class="isClosing ? 'scale-[0.85] translate-y-10 opacity-0 duration-[400ms] ease-[cubic-bezier(0.32,0.72,0,1)]' : ''"
             >
           <!-- Halo lumineux supérieur -->
           <div 
@@ -45,7 +47,7 @@
                    transition-colors duration-200 z-50
                    outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
             aria-label="Fermer"
-            @click="$emit('close')"
+            @click="requestClose"
           >
             <X class="w-5 h-5" />
           </button>
@@ -141,18 +143,26 @@ const emit = defineEmits<{
 }>()
 
 const modalRef = ref<HTMLElement | null>(null)
+const isClosing = ref(false)
+
+const requestClose = () => {
+  if (isClosing.value) return
+  isClosing.value = true
+  setTimeout(() => emit('close'), 400)
+}
 
 // Scroll lock (SSR-safe)
 if (import.meta.client) {
   const isLocked = useScrollLock(document.body)
   watch(() => props.isOpen, (val) => {
     isLocked.value = val
+    if (val) isClosing.value = false
   })
 }
 
 // Close on Escape
 onKeyStroke('Escape', () => {
-  if (props.isOpen) emit('close')
+  if (props.isOpen) requestClose()
 })
 
 // Focus trap (SSR-safe, active uniquement quand la modale est ouverte)
