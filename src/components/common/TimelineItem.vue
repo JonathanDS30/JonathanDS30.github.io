@@ -1,8 +1,8 @@
 <template>
   <div
     v-motion
-    :initial="{ opacity: 0, x: position === 'left' ? -50 : 50 }"
-    :visible-once="{ opacity: 1, x: 0, transition: { duration: 500, delay: delay } }"
+    :initial="{ opacity: 0, x: position === 'left' ? -18 : 18, y: 18, scale: 0.98 }"
+    :visible-once="{ opacity: 1, x: 0, y: 0, scale: 1, transition: { type: 'spring', stiffness: 160, damping: 22, mass: 0.8, delay: delay } }"
     :class="[
       'relative timeline-item',
       position === 'left' ? 'md:mr-auto' : 'md:ml-auto',
