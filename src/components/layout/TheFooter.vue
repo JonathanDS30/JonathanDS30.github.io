@@ -22,7 +22,7 @@
           </div>
           <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
             Ingénieur Systèmes et Réseaux passionné par la philosophie DevSecOps.
-            Actuellement en MSc à l'EPSI et en alternance chez Ordisys.
+            Diplômé d'un MSc à l'EPSI, aujourd'hui en poste chez E-MSN.
           </p>
 
           <!-- Réseaux sociaux -->
@@ -111,7 +111,7 @@
                 <Briefcase class="w-4 h-4" />
               </div>
               <span class="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                Ordisys Informatique
+                E-MSN
               </span>
             </li>
             <li class="flex items-center gap-3 group">
@@ -119,7 +119,7 @@
                 <GraduationCap class="w-4 h-4" />
               </div>
               <span class="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                EPSI Montpellier
+                Diplômé EPSI Montpellier
               </span>
             </li>
           </ul>

@@ -47,10 +47,15 @@
                   </div>
                   <h3 class="font-bold text-slate-100">Formation</h3>
                 </div>
-                <p class="text-sm text-slate-400">
-                  <strong class="text-slate-200">Bac+5 à l'EPSI</strong><br/>
-                  MSc Expert en Informatique et SI
-                </p>
+                <div class="flex items-center justify-between gap-3">
+                  <p class="text-sm text-slate-400">
+                    <strong class="text-slate-200">Diplômé Bac+5 de l'EPSI</strong><br/>
+                    MSc Expert en Informatique et SI
+                  </p>
+                  <div class="shrink-0 w-16 h-10 rounded-lg bg-white p-1 flex items-center justify-center">
+                    <img :src="logoEpsi" alt="Logo EPSI" class="max-w-full max-h-full object-contain" loading="lazy" decoding="async" />
+                  </div>
+                </div>
               </div>
 
               <!-- Carte Entreprise -->
@@ -61,10 +66,15 @@
                   </div>
                   <h3 class="font-bold text-slate-100">Expérience</h3>
                 </div>
-                <p class="text-sm text-slate-400">
-                  <strong class="text-slate-200">Alternance chez Ordisys</strong><br/>
-                  Ingénieur Systèmes et Réseaux
-                </p>
+                <div class="flex items-center justify-between gap-3">
+                  <p class="text-sm text-slate-400">
+                    <strong class="text-slate-200">Ingénieur Systèmes et Réseaux</strong><br/>
+                    chez E-MSN
+                  </p>
+                  <div class="shrink-0 w-16 h-10 rounded-lg bg-white p-1 flex items-center justify-center">
+                    <img :src="logoEmsn" alt="Logo E-MSN" class="max-w-full max-h-full object-contain" loading="lazy" decoding="async" />
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -109,4 +119,6 @@
 
 <script setup lang="ts">
 import { GraduationCap, Briefcase } from 'lucide-vue-next'
+import logoEpsi from '~/assets/img/logo_epsi.png'
+import logoEmsn from '~/assets/img/logo_emsn.png'
 </script>

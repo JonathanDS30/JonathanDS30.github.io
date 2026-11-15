@@ -56,9 +56,26 @@
 
       <!-- Contenu -->
       <div class="relative z-10">
-        <h3 class="font-bold text-lg leading-tight break-words">{{ title }}</h3>
-        <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1 break-words">{{ organization }}</p>
-        <p class="mt-2 text-xs text-slate-600 dark:text-slate-400 break-words">{{ subtitle }}</p>
+        <div class="flex items-start justify-between gap-3">
+          <div class="min-w-0">
+            <h3 class="font-bold text-lg leading-tight break-words">{{ title }}</h3>
+            <p class="text-sm text-brand-600 dark:text-brand-400 font-medium mt-1 break-words">{{ organization }}</p>
+            <p class="mt-2 text-xs text-slate-600 dark:text-slate-400 break-words">{{ subtitle }}</p>
+          </div>
+          <div
+            v-if="logo"
+            class="shrink-0 w-20 h-12 rounded-lg bg-white p-1.5 flex items-center justify-center
+                   ring-1 ring-slate-200 dark:ring-white/10 shadow-sm"
+          >
+            <img
+              :src="logo"
+              :alt="`Logo ${organization}`"
+              class="max-w-full max-h-full object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
 
         <!-- Aperçu des détails -->
         <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
@@ -93,6 +110,7 @@ defineProps<{
   title: string
   organization: string
   subtitle: string
+  logo?: string
   details: string[]
   marginClass?: string
   delay?: number

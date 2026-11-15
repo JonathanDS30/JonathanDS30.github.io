@@ -23,6 +23,7 @@
           :title="item.title"
           :organization="item.organization"
           :subtitle="item.subtitle"
+          :logo="item.logo"
           :details="item.details"
           :margin-class="item.marginClass"
           :delay="index * 100"
@@ -39,6 +40,7 @@
       :title="selectedItem?.title ?? ''"
       :organization="selectedItem?.organization ?? ''"
       :subtitle="selectedItem?.subtitle ?? ''"
+      :logo="selectedItem?.logo"
       :details="selectedItem?.extendedDetails ?? []"
       @close="closeDetail"
       @after-leave="onModalClosed"
@@ -47,6 +49,13 @@
 </template>
 
 <script setup lang="ts">
+import logoEmsn from '~/assets/img/logo_emsn.png'
+import logoOrdisys from '~/assets/img/logo_ordisys.png'
+import logoEpsi from '~/assets/img/logo_epsi.png'
+import logoCnam from '~/assets/img/logo_cnam.png'
+import logoCci from '~/assets/img/logo_cci.png'
+import logoJulesRaimu from '~/assets/img/logo_jules_raimu.png'
+
 interface DetailSection {
   title: string
   intro?: string
@@ -60,6 +69,7 @@ interface TimelineItemData {
   title: string
   organization: string
   subtitle: string
+  logo?: string
   details: string[]
   extendedDetails: DetailSection[]
   marginClass?: string
@@ -89,11 +99,36 @@ const timelineItems: readonly TimelineItemData[] = Object.freeze([
   {
     position: 'left',
     type: 'experience',
-    period: 'sept. 2025 - aujourd\'hui',
+    period: '2026 - aujourd\'hui',
+    title: 'Ingénieur Systèmes et Réseaux',
+    organization: 'E-MSN',
+    subtitle: 'Opérateur d\'infrastructure IT',
+    logo: logoEmsn,
+    marginClass: 'mb-8 md:mb-0',
+    details: [
+      'Premier poste d\'<strong>ingénieur</strong> après l\'obtention de mon MSc.',
+      'Exploitation et évolution d\'<strong>infrastructures systèmes et réseaux</strong>.',
+    ],
+    extendedDetails: [
+      {
+        title: 'Ingénieur Systèmes et Réseaux',
+        intro: 'Diplôme en poche, j\'ai rejoint E-MSN, opérateur d\'infrastructure IT, en tant qu\'Ingénieur Systèmes et Réseaux :',
+        points: [
+          'Exploitation, maintien en conditions opérationnelles et évolution d\'<strong>infrastructures systèmes et réseaux</strong>.',
+          'Mise en pratique des compétences acquises en alternance et pendant le MSc : <strong>réseau, sécurité, automatisation</strong>.',
+        ],
+      },
+    ],
+  },
+  {
+    position: 'right',
+    type: 'experience',
+    period: 'sept. 2025 - 2026',
     title: 'Apprenti Ingénieur Systèmes et Réseaux',
     organization: 'Ordisys Informatique - Nîmes',
     subtitle: 'Contrat d\'Apprentissage',
-    marginClass: 'mb-8 md:mb-0',
+    logo: logoOrdisys,
+    marginClass: 'mb-8 md:mb-0 md:-mt-24',
     details: [
       'Traitement de tickets <strong>N2</strong> : Windows Server, Linux, pare-feux.',
       '<strong>Référent unique</strong> sur la solution VoIP OrdiSIP (téléphonie interne).',
@@ -121,13 +156,14 @@ const timelineItems: readonly TimelineItemData[] = Object.freeze([
     ],
   },
   {
-    position: 'right',
+    position: 'left',
     type: 'formation',
-    period: '2024 - 2026 (en cours)',
+    period: '2024 - 2026',
     title: 'MSc Expert en Informatique & Systèmes d\'Information',
     organization: 'EPSI - Montpellier',
-    subtitle: 'Option Infrastructure & Cloud',
-    marginClass: 'md:-mt-36',
+    subtitle: 'Diplômé - Option Infrastructure & Cloud',
+    logo: logoEpsi,
+    marginClass: 'mb-8 md:mb-0 md:-mt-24',
     details: [
       'Projet <strong><a href="https://github.com/JonathanDS30/iac-atp-infra" target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-500 underline decoration-2">MSPR "ATP Infrastructure"</a></strong> (<strong>Proxmox, Packer, Terraform, Ansible</strong>)',
       'Sécurité réseau et routage inter-sites (<strong>pfSense, VPN, PCA/PRA</strong>).',
@@ -153,12 +189,13 @@ const timelineItems: readonly TimelineItemData[] = Object.freeze([
     ],
   },
   {
-    position: 'left',
+    position: 'right',
     type: 'experience',
     period: 'août 2023 - sept. 2025',
     title: 'Apprenti Assistant Technique',
     organization: 'Ordisys Informatique - Nîmes',
     subtitle: 'Contrat d\'Apprentissage',
+    logo: logoOrdisys,
     marginClass: 'mb-8 md:mb-0 md:-mt-24',
     details: [
       'Premier poste en alternance, intégration à l\'équipe <strong>DSI</strong>.',
@@ -194,12 +231,13 @@ const timelineItems: readonly TimelineItemData[] = Object.freeze([
     ],
   },
   {
-    position: 'right',
+    position: 'left',
     type: 'formation',
     period: '2023 - 2024',
     title: 'Licence (L3) Informatique générale',
     organization: 'CNAM Occitanie - Montpellier',
     subtitle: 'Certificat Analyste en cybersécurité',
+    logo: logoCnam,
     marginClass: 'mb-8 md:mb-0 md:-mt-24',
     details: [
       'Audit de sécurité <strong>EBIOS</strong> réalisé pour Ordisys.',
@@ -225,11 +263,12 @@ const timelineItems: readonly TimelineItemData[] = Object.freeze([
     ],
   },
   {
-    position: 'left',
+    position: 'right',
     type: 'formation',
     period: '2020 - 2022',
     title: 'BTS Services Informatiques aux Organisations',
     organization: 'Lycée CCI Gard - Nîmes',
+    logo: logoCci,
     subtitle: 'Option SISR (Solutions d\'Infrastructure et Systèmes Réseaux)',
     marginClass: 'mb-8 md:mb-0 md:-mt-24',
     details: [
@@ -249,11 +288,12 @@ const timelineItems: readonly TimelineItemData[] = Object.freeze([
     ],
   },
   {
-    position: 'right',
+    position: 'left',
     type: 'formation',
     period: '2016 - 2020',
     title: 'Bac Pro Systèmes Numériques',
     organization: 'Lycée Jules Raimu - Nîmes',
+    logo: logoJulesRaimu,
     subtitle: 'Option RISC (Réseaux Informatiques et Systèmes Communicants)',
     marginClass: 'md:-mt-24',
     details: [

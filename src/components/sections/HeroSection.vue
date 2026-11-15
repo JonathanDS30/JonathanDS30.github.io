@@ -62,13 +62,13 @@
               <template #icon>
                 <GraduationCap class="w-4 h-4" />
               </template>
-              MSc Student @ EPSI
+              MSc Graduate @ EPSI
             </UiGlassBadge>
             <UiGlassBadge color="emerald">
               <template #icon>
                 <Briefcase class="w-4 h-4" />
               </template>
-              Work @ Ordisys
+              Work @ E-MSN
             </UiGlassBadge>
           </div>
 
