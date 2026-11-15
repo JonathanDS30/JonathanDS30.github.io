@@ -65,14 +65,27 @@
           </div>
 
           <!-- Title & Organization -->
-          <div class="relative z-10">
-            <h3 class="font-extrabold text-2xl md:text-3xl leading-tight pr-8 text-white break-words">{{ title }}</h3>
-            <p class="text-base md:text-lg text-brand-400 font-semibold mt-2 break-words">
-              {{ organization }}
-            </p>
-            <p class="mt-2 text-sm text-slate-400 break-words">
-              {{ subtitle }}
-            </p>
+          <div class="relative z-10 flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div class="min-w-0">
+              <h3 class="font-extrabold text-2xl md:text-3xl leading-tight pr-8 text-white break-words">{{ title }}</h3>
+              <p class="text-base md:text-lg text-brand-400 font-semibold mt-2 break-words">
+                {{ organization }}
+              </p>
+              <p class="mt-2 text-sm text-slate-400 break-words">
+                {{ subtitle }}
+              </p>
+            </div>
+            <div
+              v-if="logo"
+              class="shrink-0 self-start w-28 h-16 rounded-xl bg-white p-2 flex items-center justify-center shadow-lg"
+            >
+              <img
+                :src="logo"
+                :alt="`Logo ${organization}`"
+                class="max-w-full max-h-full object-contain"
+                decoding="async"
+              />
+            </div>
           </div>
 
           <!-- Divider -->
@@ -134,6 +147,7 @@ const props = defineProps<{
   title: string
   organization: string
   subtitle: string
+  logo?: string
   details: { title: string; intro?: string; points: string[] }[]
 }>()
 

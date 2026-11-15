@@ -24,9 +24,9 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'fr' },
       title: 'Jonathan DELLA SANTINA - Portfolio',
       meta: [
-        { name: 'description', content: 'IT Enthusiast | MSc Student | DevSecOps Learner | Étudiant à l\'EPSI et Technicien Informatique chez Ordisys.' },
+        { name: 'description', content: 'Ingénieur Systèmes et Réseaux chez E-MSN | Diplômé MSc EPSI | DevSecOps.' },
         { property: 'og:title', content: 'Jonathan DELLA SANTINA - Portfolio DevSecOps' },
-        { property: 'og:description', content: 'DevSecOps Learner | MSc EPSI | Technicien Informatique chez Ordisys.' },
+        { property: 'og:description', content: 'Ingénieur Systèmes et Réseaux chez E-MSN | MSc EPSI | DevSecOps.' },
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://jonathands30.github.io' },
         { property: 'og:image', content: 'https://jonathands30.github.io/img/me.png' },
@@ -62,24 +62,18 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
   },
 
+  // Le plugin de nesting injecté par @nuxtjs/tailwindcss n'est pas importable en ESM
+  // avec Tailwind 3 sous Nuxt 4, et le CSS du site n'utilise pas d'imbrication.
+  postcss: {
+    plugins: {
+      'tailwindcss/nesting': false,
+    },
+  },
+
   // Configuration Tailwind
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
     configPath: 'tailwind.config.ts',
-  },
-
-  // Optimisations Vite
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            'vue-vendor': ['vue', 'vue-router'],
-            'icons': ['lucide-vue-next'],
-          },
-        },
-      },
-    },
   },
 
   // Configuration @vueuse/motion
