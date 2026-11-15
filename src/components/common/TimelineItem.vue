@@ -79,9 +79,12 @@
 
         <!-- Aperçu des détails -->
         <ul class="mt-3 text-sm space-y-1.5 text-slate-700 dark:text-slate-300">
-          <li v-for="(detail, idx) in details" :key="idx" class="flex items-start gap-1.5">
-            <span class="mt-1 w-1 h-1 rounded-full flex-shrink-0"
-                  :class="type === 'experience' ? 'bg-emerald-500' : 'bg-indigo-500'" />
+          <li v-for="(detail, idx) in details" :key="idx" class="flex items-start gap-2">
+            <!-- Conteneur de la hauteur d'une ligne (text-sm = 20px) pour centrer la puce sur la 1re ligne -->
+            <span class="h-5 flex items-center flex-shrink-0" aria-hidden="true">
+              <span class="w-1.5 h-1.5 rounded-full"
+                    :class="type === 'experience' ? 'bg-emerald-500' : 'bg-indigo-500'" />
+            </span>
             <span v-html="detail" />
           </li>
         </ul>

@@ -62,24 +62,18 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
   },
 
+  // Le plugin de nesting injecté par @nuxtjs/tailwindcss n'est pas importable en ESM
+  // avec Tailwind 3 sous Nuxt 4, et le CSS du site n'utilise pas d'imbrication.
+  postcss: {
+    plugins: {
+      'tailwindcss/nesting': false,
+    },
+  },
+
   // Configuration Tailwind
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
     configPath: 'tailwind.config.ts',
-  },
-
-  // Optimisations Vite
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            'vue-vendor': ['vue', 'vue-router'],
-            'icons': ['lucide-vue-next'],
-          },
-        },
-      },
-    },
   },
 
   // Configuration @vueuse/motion

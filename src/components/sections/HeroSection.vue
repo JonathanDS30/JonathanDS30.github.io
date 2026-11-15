@@ -114,21 +114,24 @@ import { GraduationCap, Briefcase, Github, Linkedin, Mail } from 'lucide-vue-nex
 const mouseX = ref(-9999)
 const mouseY = ref(-9999)
 const heroCanvas = ref<HTMLCanvasElement | null>(null)
-let animationFrameId: number
+let animationFrameId = 0
 let resizeHandler: () => void
+let requestDraw: () => void = () => {}
 
 const handleMouseMove = (event: MouseEvent) => {
   const target = event.currentTarget as HTMLElement
   if (!target) return
-  
+
   const rect = target.getBoundingClientRect()
   mouseX.value = event.clientX - rect.left
   mouseY.value = event.clientY - rect.top
+  requestDraw()
 }
 
 const handleMouseLeave = () => {
   mouseX.value = -9999
   mouseY.value = -9999
+  requestDraw()
 }
 
 onMounted(() => {
@@ -180,13 +183,24 @@ onMounted(() => {
     }
   }
   
+  // Dessin à la demande : on ne redessine que lorsque la souris bouge
+  // ou que le canvas est redimensionné (pas de boucle rAF permanente).
   const frame = () => {
+    animationFrameId = 0
     cx.clearRect(0, 0, W, H)
     drawDotGrid()
-    animationFrameId = requestAnimationFrame(frame)
   }
-  
-  frame()
+
+  requestDraw = () => {
+    if (!animationFrameId) animationFrameId = requestAnimationFrame(frame)
+  }
+
+  window.removeEventListener('resize', resizeHandler)
+  const baseResize = resizeHandler
+  resizeHandler = () => { baseResize(); requestDraw() }
+  window.addEventListener('resize', resizeHandler)
+
+  requestDraw()
 })
 
 onUnmounted(() => {

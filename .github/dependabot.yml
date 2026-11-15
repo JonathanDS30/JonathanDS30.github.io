@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /src
+    target-branch: dev
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      nuxt:
+        patterns: ["nuxt", "@nuxt/*", "@nuxtjs/*", "vue", "@vueuse/*"]
+      minor-and-patch:
+        update-types: [minor, patch]
+    ignore:
+      # lucide-vue-next 1.x supprime les icônes de marques (Github, Linkedin) utilisées sur le site
+      - dependency-name: lucide-vue-next
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: dev
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      actions:
+        patterns: ["*"]
